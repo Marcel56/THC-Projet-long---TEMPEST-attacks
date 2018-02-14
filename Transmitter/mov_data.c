@@ -3,8 +3,8 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <time.h>
+#include <math.h>
 
-//char DATA[16];
 float TX_TIME = 0.5;
 
 int * allocate_data(int buffer_size){
@@ -27,14 +27,10 @@ int * allocate_data(int buffer_size){
 
 void mov_data(int * data_ptr,char * buffer_ptr )
 {
-  //__asm("mov $0x123456789abcdef0,%rax\n");
   __asm("movq %0,%%xmm0\n"
          :
          :"m" (*data_ptr)
          :"%xmm0");
-  //__asm("movq %rax,%xmm0\n");
-  //__asm("mov $0x123456789abcdef0,%rax\n");
-  //__asm("movq %rax,%xmm1\n");
   __asm("movq %0,%%xmm1\n"
          :
          :"m" (*(data_ptr+8))
@@ -45,39 +41,32 @@ void mov_data(int * data_ptr,char * buffer_ptr )
 
 int main (void)
 {
+  int i;
   int * data = allocate_data(4096);
   char * memory_buffer = malloc(16);
-  //char * memory_buffer = DATA;
-  printf("Memory buffer address : %p\n", memory_buffer);
-  int i;
-  //for(i=0; i<4; i++){
-  //  *(memory_buffer+i)=0x00000000;
-  //}
-  //for(i=0; i<4096; i++){
-   // printf("Address : %p - Value : %x - Int : %d\n", buffer+i, *(buffer+i), *(buffer+i));
-    //sleep(1);
-  //}
+  //printf("Memory buffer address : %p\n", memory_buffer);
+
+  int * tx_data = allocate_data(sizeof(int));
+  printf("Data : %d\n", *tx_data);
+  unsigned bit = 0 ;
+  unsigned mask = 1 ;
+  for(i=0; i<sizeof(int)*8; i++){
+    bit = (*tx_data & mask) >> i ;
+    printf("%d", bit) ;
+    mask <<= 1 ;
+  }
+  printf("\n");
+
   while(1){
     time_t start=time(NULL);
-    //printf("%d\n", start);
-    //clock_t t = clock();
     printf("ON! \n");
-    int k = 0;
     while(time(NULL)-start<TX_TIME){
       for(i=0;i<4096;i+=4){
         mov_data(data+i, memory_buffer);
-        //int j;
-	//for(j=0; j<16; j++){
-	//  printf("%x",*(memory_buffer+j));
-	//}
-        //printf("\n");
-        //k++;
-        //sleep(1);
       }
     }
-    //printf("k = %d\n", k);
     printf("OFF! \n");
-    usleep(500000);
+    usleep(TX_TIME*pow(10,6));
   }
   return 0;
 }
