@@ -42,7 +42,7 @@ int main(){
  fill_buffer_freq(buffer, BUFFER_SIZE, 200);
   //int i=0;
   while(1){
-    FILE * fd=fopen("/run/media/florian/2890-8E11/test", "w");
+    FILE * fd=fopen("/path/to/USB_key/test", "w");
     fwrite(buffer, BUFFER_SIZE,1,fd);
     fclose(fd);
     //printf("Loop : %d\n", i);
