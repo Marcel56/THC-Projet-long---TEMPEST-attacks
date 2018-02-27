@@ -11,3 +11,12 @@ Introduction/contexte :
   -> Comment extraire l'information? => Utilisation des émissions électromagnétiques pour créer un canal caché
   -> Modèle d'attaque : le PC "air-gapped" est infecté => le malware permet la création du canal caché
   -> But du challenge : créer le canal caché, extraire l'information et la réceptionner
+
+
+Création d'un canal caché
+
+Emission de l'information
+
+Réception de l'information
+
+
