@@ -28,8 +28,22 @@ Création d'un canal caché
   -> Visualiser sur l'analyseur de spectre d'URH qu'il se passe quelque chose
   -> Réceptionner un signal avec des créneaux
 
-Emission de l'information
+Réception du signal
+-> Etablir qu'on l'on réceptionne un signal en créneau
+-> Etablir que ce signal doit être arrangé pour être exploité
+-> Expliquer comment arranger le signal
+-> Voir avec URH ou GnuRadio que l'on est alors en capacité de démoduler le signal
 
-Réception de l'information
+Extraction de la clé
+-> Remplir le fichier C pré-établi pour créer une fonction permettant d'envoyer n'importe quelle séquence de bits
+-> Expliquer l'encapsulation
+-> Mise en pratique : 
+  -> Emettre les bits de la clé du coté du PC infecté
+  -> Réceptionner les bits du coté du PC de l'attaquant
+
+Conclusion et ouverture :
+-> Possibilité d'un meilleur traitement du signal pour observer le signal à une distance plus grande
+-> Existance d'autres possibilités de canaux cachés : USBee
+-> contremesures : démarche zonale, cage de faraday, détection du malware
 
 
