@@ -1,0 +1,13 @@
+Introduction/contexte :
+-> Expliquer ce que sont TEMPEST et COMSEC
+-> Expliquer que les composants électroniques émettent des OEM
+-> Mise en pratique :
+  -> Décrire ce qu'est un analyseur de spectre
+  -> Présenter l'outil URH
+  -> Utiliser l'analyseur de spectre d'URH pour visualiser qu'un PC éteind n'émet aucun OEM et qu'un PC allumé en émet
+  -> Utiliser l'analyseur de spectre d'URH pour montrer qu'une action sur le PC modifie l'amplitude des OEM analysés => possibilité de créer un signal
+-> Présentation du scénario : 
+  -> Un PC dans un réseau "air-gapped" (e.g. un réseau industriel) contenant des informations confidentielle (e.g. une clé de chiffrement)
+  -> Comment extraire l'information? => Utilisation des émissions électromagnétiques pour créer un canal caché
+  -> Modèle d'attaque : le PC "air-gapped" est infecté => le malware permet la création du canal caché
+  -> But du challenge : créer le canal caché, extraire l'information et la réceptionner
