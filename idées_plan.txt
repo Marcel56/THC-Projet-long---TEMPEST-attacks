@@ -14,6 +14,19 @@ Introduction/contexte :
 
 
 Création d'un canal caché
+-> Expliquer que certaines instructions du processeur mobilisent beaucoup de ressource (énergie, temps de calcul, etc...)
+-> Expliquer ce qu'est le multichannel
+-> Indiquer l'existence de l'instruction MOVNTDQ, expliquer ce qu'elle fait et dans quelles conditions celle-ci émet une OEM
+-> Mise en pratique :
+  -> Remplir un fichier C pré-établi pour émettre en continu des instuction MOVNTDQ
+  -> Visualiser sur l'analyseur de spectre d'URH qu'il se passe quelque chose
+  -> Réceptionner un premier signal
+-> Etablir qu'on observer une différene d'amplitude
+-> Expliquer ce qu'est la modulation ASK et qu'il est possible ici de la mettre en oeuvre
+-> Mise en pratique
+  -> Remplir le fichier C pré-établi pour créer une émission en alternance
+  -> Visualiser sur l'analyseur de spectre d'URH qu'il se passe quelque chose
+  -> Réceptionner un signal avec des créneaux
 
 Emission de l'information
 
