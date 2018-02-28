@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 
 #define BYTE_MAX 100
 
@@ -8,10 +9,9 @@ int main(int argc, char *argv[])
     FILE* fichier = NULL;
     unsigned char byte;
     unsigned char tab_hex[BYTE_MAX];
-    unsigned char octet_bin[8];
-//    unsigned char tab_bin[8*BYTE_MAX];
+    unsigned char tab_bits[BYTE_MAX*8];
     int i, nb_bytes =0;
-    int j, c, k;
+    int c, k;
 
 
     fichier = fopen("test", "rb");
@@ -35,24 +35,26 @@ int main(int argc, char *argv[])
     for (i=0;i<nb_bytes;i++){
 
 //on les convertit en binaire
-        j = 7;
-	for (c=0;c<=7; c++){
+        int j=0;
+	for (c=7;c>=0; c--){
 	    k = tab_hex[i] >> c;
 	    if (k & 1){
-		octet_bin[j]='1';
-		//printf("1");
+		tab_bits[i*8+j] = '\x01';
+		
 	    }
 	    else {
-		octet_bin[j]='0';
-		//printf("0");
+		tab_bits[i*8+j] ='\x00';
+
 	    }
-    	    j--;
+	    j++;
+
 	}
 	
-	    printf("%s ", octet_bin);
-
     } 
-
+    for (i=0;i<nb_bytes*8;i++){
+        printf("%d", tab_bits[i]);
+    }
     return 0;
 	fclose(fichier);
+
 }
