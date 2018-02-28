@@ -10,6 +10,14 @@ body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
+.box {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 10px;
+}
 </style>
 <body>
 
@@ -46,8 +54,10 @@ body {font-size:16px;}
     <center><img src="images/1.jpg" alt="analyseur" height="400"></center>
     <p>Ici, nous utiliserons un RTL-SDR ainsi que le logiciel URH. Le RTL-SDR, couplé à son antenne, sert à réceptionner le signal. URH sert quant à lui à l'afficher et le traiter.</p>
     <br>
-    <h1 class="w3-xlarge w3-text-red"><b>À vous !</b></h1>
+    <div class="box">
+    <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
     <p>Avec URH en mode analyseur de spectre et le RTL-SDR, constatez qu'une activité sur l'ordinateur (un défilement d'une fenêtre par exemple), provoque une augmentation du signal.</p>
+    </div>
     <br>
     <p>À présent, vous devriez être convaincu de l'existance d'émanation électromatique de l'ordinateur.</p>
     <p>Dans l'étape 2, vous allez voir qu'il est possible de contrôler les émanations de la RAM avec un petit programme en C.</p>
