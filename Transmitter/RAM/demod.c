@@ -54,6 +54,17 @@ int main(int argc, char *argv[])
     for (i=0;i<nb_bytes*8;i++){
         printf("%d", tab_bits[i]);
     }
+
+    for (i=0;i<nb_bytes*8;i++){ 
+	if(tab_bits[i] ==1 && tab_bits[i+1] == 1 && tab_bits[i+2] ==0 && tab_bits[i+3] ==1){
+	printf("\npattern trouvé");
+        }
+	else{
+	
+	}
+	i++;
+    }
+
     return 0;
 	fclose(fichier);
 
