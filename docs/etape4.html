@@ -29,7 +29,7 @@ body {font-size:16px;}
   bouton.textContent = "Conclusion";
   refConclusion.appendChild(bouton);
 
-  var bravo1 = document.createElement("div");
+  var text1 = document.createElement("div");
   var ddl = document.createElement("a");
   var dllAttribute = document.createAttribute("href");
   dllAttribute.value = "codes/demodulation.c";
@@ -40,59 +40,77 @@ body {font-size:16px;}
   tmp1.textContent = "Bravo ! Vous pouvez télécharger le source ";
   var tmp2 = document.createElement("span");
   tmp2.textContent = ".";
-  bravo1.appendChild(tmp1);
-  bravo1.appendChild(ddl);
-  bravo1.appendChild(tmp2);
+  text1.appendChild(tmp1);
+  text1.appendChild(ddl);
+  text1.appendChild(tmp2);
   var para = document.createElement("p");
   para.textContent = "A présent, vous avez tous les éléments pour trouver le flag.";
-  bravo1.appendChild(para);
+  text1.appendChild(para);
 
-  var box = document.createElement("input");
-  var boxAttribute1 = document.createAttribute("type");
-  boxAttribute1.value = "text";
-  box.setAttributeNode(boxAttribute1);
-  var boxAttribute2 = document.createAttribute("placeholder");
-  boxAttribute2.value = "Entrez le flag";
-  box.setAttributeNode(boxAttribute2);
-  var boxAttribute3 = document.createAttribute("value");
-  boxAttribute3.value = "";
-  box.setAttributeNode(boxAttribute3);
-  var boxAttribute4 = document.createAttribute("onkeypress");
-  boxAttribute4.value = "runScript(event)";
-  box.setAttributeNode(boxAttribute4);
-  var boxAttribute5 = document.createAttribute("id");
-  boxAttribute5.value = "box";
-  box.setAttributeNode(boxAttribute5);
+  var boxInput = document.createElement("input");
+  var boxInputAttribute1 = document.createAttribute("type");
+  boxInputAttribute1.value = "text";
+  boxInput.setAttributeNode(boxInputAttribute1);
+  var boxInputAttribute2 = document.createAttribute("placeholder");
+  boxInputAttribute2.value = "Entrez le flag";
+  boxInput.setAttributeNode(boxInputAttribute2);
+  var boxInputAttribute3 = document.createAttribute("value");
+  boxInputAttribute3.value = "";
+  boxInput.setAttributeNode(boxInputAttribute3);
+  var boxInputAttribute4 = document.createAttribute("onkeypress");
+  boxInputAttribute4.value = "runScript(event)";
+  boxInput.setAttributeNode(boxInputAttribute4);
+  var boxInputAttribute5 = document.createAttribute("id");
+  boxInputAttribute5.value = "boxInput";
+  boxInput.setAttributeNode(boxInputAttribute5);
 
-  bravo2 = document.createElement("div");
+  boxSubmit = document.createElement("input");
+  var boxSubmitAttribute1 = document.createAttribute("type");
+  boxSubmitAttribute1.value = "button";
+  boxSubmit.setAttributeNode(boxSubmitAttribute1);
+  var boxSubmitAttribute2 = document.createAttribute("value");
+  boxSubmitAttribute2.value = "Valider";
+  boxSubmit.setAttributeNode(boxSubmitAttribute2);
+  var boxSubmitAttribute3 = document.createAttribute("onclick");
+  boxSubmitAttribute3.value = "valider2()";
+  boxSubmit.setAttributeNode(boxSubmitAttribute3);
+
+  text2 = document.createElement("div");
   var p = document.createElement("p");
   p.textContent = 'Félicitations ! Le mot de passe était bien "pass". Vous avez terminé le challenge !!!';
-  bravo2.appendChild(p);
+  text2.appendChild(p);
 
   var tryAgain = document.createElement("p");
   var text = document.createTextNode("Try Again");
   tryAgain.appendChild(text);
+
+  var bravo1 = document.createElement("div");
+  bravo1.appendChild(text1);
+  bravo1.appendChild(boxInput);
+  bravo1.appendChild(boxSubmit);
+
+  var bravo2 = document.createElement("div");
+  bravo2.appendChild(text2);
+  bravo2.appendChild(refConclusion);
 
   function valider1() {
     var answer = document.getElementById("line").value;
     var node1 = document.getElementById("end");
     if(answer=="2"){
       node1.replaceChild(bravo1, node1.childNodes[1]);
-      node1.appendChild(box);
     }
   }
 
 	function valider2() {
     var flag = true;
-    var answer = document.getElementById("box").value;
+    var answer = document.getElementById("boxInput").value;
     var node1 = document.getElementById("end");
     if(answer=="pass"){
       node1.replaceChild(bravo2, node1.childNodes[1]);
-      node1.replaceChild(refConclusion, node1.childNodes[3]);
-      node1.removeChild(node1.childNodes[4]);
     }
-    else if (flag) {
-      node1.appendChild(tryAgain);
+    else if(flag) {
+      bravo1.appendChild(tryAgain);
+      flag = false;
     }
   }
 
