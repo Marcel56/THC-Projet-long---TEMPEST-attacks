@@ -14,103 +14,39 @@ body {font-size:16px;}
   margin-left:30px;
   margin-right:30px;
 }
+.box {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 10px;
+}
 </style>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script type="text/javascript">
 
-  var refConclusion = document.createElement("a");
-  var refConclusionAttribute = document.createAttribute("href");
-  refConclusionAttribute.value = "conclusion.html";
-  refConclusion.setAttributeNode(refConclusionAttribute);
-  var bouton = document.createElement("button");
-  var boutonAttribute = document.createAttribute("class");
-  boutonAttribute.value = "w3-button w3-red";
-  bouton.setAttributeNode(boutonAttribute);
-  bouton.textContent = "Conclusion";
-  refConclusion.appendChild(bouton);
-
-  var text1 = document.createElement("div");
-  var ddl = document.createElement("a");
-  var dllAttribute = document.createAttribute("href");
-  dllAttribute.value = "codes/demodulation.c";
-  ddl.setAttributeNode(dllAttribute);
-  var ici = document.createTextNode("ici");
-  ddl.appendChild(ici);
-  var tmp1 = document.createElement("span");
-  tmp1.textContent = "Bravo ! Vous pouvez télécharger le source ";
-  var tmp2 = document.createElement("span");
-  tmp2.textContent = ".";
-  text1.appendChild(tmp1);
-  text1.appendChild(ddl);
-  text1.appendChild(tmp2);
-  var para = document.createElement("p");
-  para.textContent = "A présent, vous avez tous les éléments pour trouver le flag.";
-  text1.appendChild(para);
-
-  var boxInput = document.createElement("input");
-  var boxInputAttribute1 = document.createAttribute("type");
-  boxInputAttribute1.value = "text";
-  boxInput.setAttributeNode(boxInputAttribute1);
-  var boxInputAttribute2 = document.createAttribute("placeholder");
-  boxInputAttribute2.value = "Entrez le flag";
-  boxInput.setAttributeNode(boxInputAttribute2);
-  var boxInputAttribute3 = document.createAttribute("value");
-  boxInputAttribute3.value = "";
-  boxInput.setAttributeNode(boxInputAttribute3);
-  var boxInputAttribute4 = document.createAttribute("onkeypress");
-  boxInputAttribute4.value = "runScript(event)";
-  boxInput.setAttributeNode(boxInputAttribute4);
-  var boxInputAttribute5 = document.createAttribute("id");
-  boxInputAttribute5.value = "boxInput";
-  boxInput.setAttributeNode(boxInputAttribute5);
-
-  boxSubmit = document.createElement("input");
-  var boxSubmitAttribute1 = document.createAttribute("type");
-  boxSubmitAttribute1.value = "button";
-  boxSubmit.setAttributeNode(boxSubmitAttribute1);
-  var boxSubmitAttribute2 = document.createAttribute("value");
-  boxSubmitAttribute2.value = "Valider";
-  boxSubmit.setAttributeNode(boxSubmitAttribute2);
-  var boxSubmitAttribute3 = document.createAttribute("onclick");
-  boxSubmitAttribute3.value = "valider2()";
-  boxSubmit.setAttributeNode(boxSubmitAttribute3);
-
-  text2 = document.createElement("div");
-  var p = document.createElement("p");
-  p.textContent = 'Félicitations ! Le mot de passe était bien "pass". Vous avez terminé le challenge !!!';
-  text2.appendChild(p);
-
-  var tryAgain = document.createElement("p");
-  var text = document.createTextNode("Try Again");
-  tryAgain.appendChild(text);
-
-  var bravo1 = document.createElement("div");
-  bravo1.appendChild(text1);
-  bravo1.appendChild(boxInput);
-  bravo1.appendChild(boxSubmit);
-
-  var bravo2 = document.createElement("div");
-  bravo2.appendChild(text2);
-  bravo2.appendChild(refConclusion);
-
   function valider1() {
-    var answer = document.getElementById("line").value;
-    var node1 = document.getElementById("end");
+    var answer = document.getElementById("line1").value;
     if(answer=="2"){
-      node1.replaceChild(bravo1, node1.childNodes[1]);
+      document.getElementById("valider").style.display = "none";
+      document.getElementById("bravo1").style.display = "";
+      document.getElementById("line1").style.display = "none";
+      document.getElementById("line2").style.display = "";
+    }
+    else{
+      document.getElementById("again1").style.display = "";
     }
   }
 
 	function valider2() {
-    var flag = true;
-    var answer = document.getElementById("boxInput").value;
-    var node1 = document.getElementById("end");
+    var answer = document.getElementById("box").value
     if(answer=="pass"){
-      node1.replaceChild(bravo2, node1.childNodes[1]);
+      document.getElementById("bravo1").style.display = "none";
+      document.getElementById("bravo2").style.display = "";
     }
-    else if(flag) {
-      bravo1.appendChild(tryAgain);
-      flag = false;
+    else{
+      document.getElementById("again2").style.display = "";
     }
   }
 
@@ -215,12 +151,12 @@ int main(int argc, char ** argv)
   }
 
   extract_msg(sortie, msg, pattern);
-
-  <select id="line">
+  <span id="line2" style="display: none">bin_to_ascii(msg, pass);</span>
+  <select id="line1">
     <option>Sélectionner la bonne fonction :</option>
     <option value="1">bin_to_hex(msg, pass);</option>
-    <option value="2">bin_to_ascii(msg, pass)</option>
-    <option value="3">hex_to_ascii(msg, pass)</option>
+    <option value="2">bin_to_ascii(msg, pass);</option>
+    <option value="3">hex_to_ascii(msg, pass);</option>
   </select>
   printf("pass = %s\n", pass);
   pclose(sortie);
@@ -229,8 +165,22 @@ int main(int argc, char ** argv)
 }
       </pre>
     </div>
-    <div id="end">
+    <div id="valider">
       <button class="w3-button w3-red" onclick=valider1()>Valider</button>
+      <p id="again1" style="display: none">Try Again</p>
+    </div>
+    <div id="bravo1" style="display: none">
+      <p> Bravo ! Vous pouvez télécharger le source <a href="codes/demodulation.c">ici</a>.</p>
+      <div class="box">
+        <p> À présent, vous avez tous les éléments pour trouver le flag.</p>
+        <input id="box" type="text" placeholder="Entrez le flag" onkeypress=runScript(event) autocomplete="off"></input>
+        <input type="button" value="Valider" onclick=valider2()></input>
+        <p id="again2" style="display: none">Try Again</p>
+      </div>
+    </div>
+    <div id="bravo2" style="display: none">
+      <p>Félicitation ! Le flag était bien "pass". Vous avez terminé le challenge !!</p>
+      <a href="conclusion.html"><button class="w3-button w3-red">Conclusion</button></a>
     </div>
   </div>
 
