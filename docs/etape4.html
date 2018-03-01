@@ -17,29 +17,91 @@ body {font-size:16px;}
 </style>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script type="text/javascript">
-	function valider() {
+
+  var refConclusion = document.createElement("a");
+  var refConclusionAttribute = document.createAttribute("href");
+  refConclusionAttribute.value = "conclusion.html";
+  refConclusion.setAttributeNode(refConclusionAttribute);
+  var bouton = document.createElement("button");
+  var boutonAttribute = document.createAttribute("class");
+  boutonAttribute.value = "w3-button w3-red";
+  bouton.setAttributeNode(boutonAttribute);
+  bouton.textContent = "Conclusion";
+  refConclusion.appendChild(bouton);
+
+  var bravo1 = document.createElement("div");
+  var ddl = document.createElement("a");
+  var dllAttribute = document.createAttribute("href");
+  dllAttribute.value = "codes/demodulation.c";
+  ddl.setAttributeNode(dllAttribute);
+  var ici = document.createTextNode("ici");
+  ddl.appendChild(ici);
+  var tmp1 = document.createElement("span");
+  tmp1.textContent = "Bravo ! Vous pouvez télécharger le source ";
+  var tmp2 = document.createElement("span");
+  tmp2.textContent = ".";
+  bravo1.appendChild(tmp1);
+  bravo1.appendChild(ddl);
+  bravo1.appendChild(tmp2);
+  var para = document.createElement("p");
+  para.textContent = "A présent, vous avez tous les éléments pour trouver le flag.";
+  bravo1.appendChild(para);
+
+  var box = document.createElement("input");
+  var boxAttribute1 = document.createAttribute("type");
+  boxAttribute1.value = "text";
+  box.setAttributeNode(boxAttribute1);
+  var boxAttribute2 = document.createAttribute("placeholder");
+  boxAttribute2.value = "Entrez le flag";
+  box.setAttributeNode(boxAttribute2);
+  var boxAttribute3 = document.createAttribute("value");
+  boxAttribute3.value = "";
+  box.setAttributeNode(boxAttribute3);
+  var boxAttribute4 = document.createAttribute("onkeypress");
+  boxAttribute4.value = "runScript(event)";
+  box.setAttributeNode(boxAttribute4);
+  var boxAttribute5 = document.createAttribute("id");
+  boxAttribute5.value = "box";
+  box.setAttributeNode(boxAttribute5);
+
+  bravo2 = document.createElement("div");
+  var p = document.createElement("p");
+  p.textContent = 'Félicitations ! Le mot de passe était bien "pass". Vous avez terminé le challenge !!!';
+  bravo2.appendChild(p);
+
+  var tryAgain = document.createElement("p");
+  var text = document.createTextNode("Try Again");
+  tryAgain.appendChild(text);
+
+  function valider1() {
     var answer = document.getElementById("line").value;
-    var node1 = document.getElementById("bravo");
-    var node2 = document.getElementById("bouton");
-
-    var ref = document.createElement("a");
-    var att1 = document.createAttribute("href");
-    att1.value = "conclusion.html";
-    ref.setAttributeNode(att1);
-
-    var bouton = document.createElement("button");
-    var att2 = document.createAttribute("class");
-    att2.value = "w3-button w3-red";
-    bouton.setAttributeNode(att2);
-    bouton.textContent = "Conclusion";
-
-    ref.appendChild(bouton);
-
+    var node1 = document.getElementById("end");
     if(answer=="2"){
-      node1.textContent = "Félicitations !";
-      node2.replaceChild(ref, node2.childNodes[0]);
+      node1.replaceChild(bravo1, node1.childNodes[1]);
+      node1.appendChild(box);
     }
   }
+
+	function valider2() {
+    var flag = true;
+    var answer = document.getElementById("box").value;
+    var node1 = document.getElementById("end");
+    if(answer=="pass"){
+      node1.replaceChild(bravo2, node1.childNodes[1]);
+      node1.replaceChild(refConclusion, node1.childNodes[3]);
+      node1.removeChild(node1.childNodes[4]);
+    }
+    else if (flag) {
+      node1.appendChild(tryAgain);
+    }
+  }
+
+  function runScript(e) {
+	    if (e.keyCode == 13) {
+	        valider2();
+	    }
+	}
+
 </script>
 <body>
 
@@ -149,8 +211,9 @@ int main(int argc, char ** argv)
 }
       </pre>
     </div>
-    <p id="bravo"></p>
-    <p id="bouton"><button class="w3-button w3-red" onclick=valider()>Valider</button></p>
+    <div id="end">
+      <button class="w3-button w3-red" onclick=valider1()>Valider</button>
+    </div>
   </div>
 
 <!-- End page content -->
