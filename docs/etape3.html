@@ -56,7 +56,40 @@ body {font-size:16px;}
   <div class="w3-row-padding w3-grayscale">
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-light-grey">
-        <center><img src="images/screenshot/Source.png" alt="Source" style="width:50%"></center>
+        <center><img src="images/screenshot/topblock.png" alt="topblock" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Top Block</h3>
+          <p class="w3-opacity">XXXXXX</p>
+          <p>Ce bloc contient des options pour GNU Radio. Il apparait dans le flowgraph mais n'est pas utilisé.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <center><img src="images/screenshot/samp_rate.png" alt="sample_rate" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Sample Rate</h3>
+          <p class="w3-opacity">XXXXXXX</p>
+          <p>C'est ici que nous renseignons la fréquence d'échantillonnage (en échantillons/seconde). </p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <center><img src="images/screenshot/treshold.png" alt="Treshold" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Treshold</h3>
+          <p class="w3-opacity">XXXXXXXX</p>
+          <p>Ce bloc permet de prendre une décision en fonction d'une valeur seuil minimale et maximale.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+      <center><img src="images/screenshot/Source.png" alt="Source" style="width:50%"></center>
         <div class="w3-container">
           <h3>Source</h3>
           <p class="w3-opacity">XXXXXX</p>
@@ -66,7 +99,7 @@ body {font-size:16px;}
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-light-grey">
-        <img src="images/screenshot/movi_average.png" alt="moving" style="width:50%">
+        <center><img src="images/screenshot/movi_average.png" alt="moving" style="width:50%"></center>
         <div class="w3-container">
           <h3>Moving Average</h3>
           <p class="w3-opacity">XXXXXXX</p>
@@ -76,7 +109,73 @@ body {font-size:16px;}
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-light-grey">
-        <img src="images/screenshot/treshold.png" alt="Treshold" style="width:50%">
+        <center><img src="images/screenshot/var_freq.png" alt="Variable" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Variable</h3>
+          <p class="w3-opacity">XXXXXXXX</p>
+          <p>Ce bloc permet de déclarer un variable. Nous l'utiliserons pour modifier les valeurs de fréquences</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+      <center><img src="images/screenshot/Pack_bits.png" alt="Pack_Bits" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Pack K Bits</h3>
+          <p class="w3-opacity">XXXXXX</p>
+          <p>Permet de concaténer les Bits de poids faible de 8 octets</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <center><img src="images/screenshot/clock_recov.png" alt="clock_recovery" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Clock Recovery MM</h3>
+          <p class="w3-opacity">XXXXXXX</p>
+          <p>Ce bloc permet de définir une période</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <center><img src="images/screenshot/File_out.png" alt="file_out" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>File Out</h3>
+          <p class="w3-opacity">XXXXXXXX</p>
+          <p>Ce bloc permet d'écrire dans un fichier.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+    
+  <div class="w3-row-padding w3-grayscale">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+      <center><img src="images/screenshot/Source.png" alt="Source" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Source</h3>
+          <p class="w3-opacity">XXXXXX</p>
+          <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <center><img src="images/screenshot/movi_average.png" alt="moving" style="width:50%"></center>
+        <div class="w3-container">
+          <h3>Moving Average</h3>
+          <p class="w3-opacity">XXXXXXX</p>
+          <p>Ce bloc permet d'effectuer une moyenne glissante.</p>
+        </div>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-light-grey">
+        <center><img src="images/screenshot/treshold.png" alt="Treshold" style="width:50%"></center>
         <div class="w3-container">
           <h3>Treshold</h3>
           <p class="w3-opacity">XXXXXXXX</p>
@@ -85,39 +184,6 @@ body {font-size:16px;}
       </div>
     </div>
   </div>
-  <div class="w3-row-padding w3-grayscale">
-  <div class="w3-col m4 w3-margin-bottom">
-    <div class="w3-light-grey">
-    <img src="images/screenshot/Source.png" alt="Source" style="width:100%">
-      <div class="w3-container">
-        <h3>Source</h3>
-        <p class="w3-opacity">XXXXXX</p>
-        <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
-      </div>
-    </div>
-  </div>
-  <div class="w3-col m4 w3-margin-bottom">
-    <div class="w3-light-grey">
-      <img src="images/screenshot/movi_average.png" alt="moving" style="width:100%">
-      <div class="w3-container">
-        <h3>Moving Average</h3>
-        <p class="w3-opacity">XXXXXXX</p>
-        <p>Ce bloc permet d'effectuer une moyenne glissante.</p>
-      </div>
-    </div>
-  </div>
-  <div class="w3-col m4 w3-margin-bottom">
-    <div class="w3-light-grey">
-      <img src="images/screenshot/treshold.png" alt="Treshold" style="width:100%">
-      <div class="w3-container">
-        <h3>Treshold</h3>
-        <p class="w3-opacity">XXXXXXXX</p>
-        <p>Ce bloc permet de prendre une décision en fonction d'une valeur seuil minimale et maximale.</p>
-      </div>
-    </div>
-  </div>
-</div>
-
 
     
     <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
