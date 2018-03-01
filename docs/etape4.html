@@ -10,7 +10,37 @@ body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
+.code{
+  margin-left:30px;
+  margin-right:30px;
+}
 </style>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
+<script type="text/javascript">
+	function valider() {
+    var answer = document.getElementById("line").value;
+    var node1 = document.getElementById("bravo");
+    var node2 = document.getElementById("bouton");
+
+    var ref = document.createElement("a");
+    var att1 = document.createAttribute("href");
+    att1.value = "conclusion.html";
+    ref.setAttributeNode(att1);
+
+    var bouton = document.createElement("button");
+    var att2 = document.createAttribute("class");
+    att2.value = "w3-button w3-red";
+    bouton.setAttributeNode(att2);
+    bouton.textContent = "Conclusion";
+
+    ref.appendChild(bouton);
+
+    if(answer=="2"){
+      node1.textContent = "Félicitations !";
+      node2.replaceChild(ref, node2.childNodes[0]);
+    }
+  }
+</script>
 <body>
 
 <!-- Sidebar/menu -->
@@ -46,9 +76,81 @@ body {font-size:16px;}
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 4</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
     <p>Maintenant, il s'agit de controler quelle séquence de bit on souhaite envoyer.</p>
-    <p>Complétez alors le fichier C.</p>
-    <p><em>La il faut voir ce qu'on transmet.</em></p>
-    <a href="conclusion.html"><button class="w3-button w3-red">Conclusion</button></a>
+    <p>Voici la fonction qui permet d'extraire le message entre deux occurrences d'un pattern :</p>
+    <div class="code">
+      <pre class="prettyprint">
+void extract_msg(FILE * fic, char * msg, char * pattern)
+{
+  // Extrait la charge utile du fichier obtenu à la réception du signal
+  // Met le résultat en binaire dans la chaine "msg"
+  char chaine[TAILLE_MAX],
+       tmp1[TAILLE_MAX],
+       *tmp2,
+       tmp3[TAILLE_MAX]="",
+       *tmp4,
+       bin[TAILLE_MAX]="";
+
+  while (fgets(chaine, TAILLE_MAX, fic) != NULL)
+  {
+    memset (tmp1, 0, sizeof (tmp1));
+    strncpy(tmp1, chaine+10, 55);
+    rem_space(tmp1);
+    strcat(bin, tmp1);
+  }
+  tmp2 = strstr(bin, pattern);
+  strcpy(tmp3, tmp2+strlen(pattern));
+  tmp4 = strstr(tmp3, pattern);
+  strncpy(msg, tmp3, tmp4-tmp3);
+}
+      </pre>
+    </div>
+
+    <p>Complétez à présent le <em>main</em> du programme.
+    <div class="code">
+      <pre class="prettyprint">
+int main(int argc, char ** argv)
+{
+  // Déclaration des variables
+  char commande[30] = "xxd -b ",
+       msg[TAILLE_MAX]="",
+       *pattern="11111111",
+       pass[TAILLE_MAX]="";
+  FILE *sortie;
+
+  // Teste du nombre d'argument
+  if(argc!=2)
+  {
+    printf("%s\n", "Il faut un argument");
+    exit(1);
+  }
+
+  // Ouverture du fichier
+  strcat(commande, argv[1]);
+  sortie = popen(commande, "r");
+  if(sortie == NULL)
+  {
+    perror("Erreur popen ");
+    exit(EXIT_FAILURE);
+
+  }
+
+  extract_msg(sortie, msg, pattern);
+
+  <select id="line">
+    <option>Sélectionner la bonne fonction :</option>
+    <option value="1">bin_to_hex(msg, pass);</option>
+    <option value="2">bin_to_ascii(msg, pass)</option>
+    <option value="3">hex_to_ascii(msg, pass)</option>
+  </select>
+  printf("pass = %s\n", pass);
+  pclose(sortie);
+
+  return 0;
+}
+      </pre>
+    </div>
+    <p id="bravo"></p>
+    <p id="bouton"><button class="w3-button w3-red" onclick=valider()>Valider</button></p>
   </div>
 
 <!-- End page content -->
@@ -63,7 +165,7 @@ function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
