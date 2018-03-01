@@ -6,7 +6,7 @@
 #include <math.h>
 #include <string.h>
 
-float TX_TIME = 0.5; //Temps de transmission d'un bit
+float TX_TIME = 1; //Temps de transmission d'un bit
 int DATA_SIZE = 128; //Taille maximale en octet des données à transmettre
 
 
@@ -55,7 +55,7 @@ int main (int argc, char ** argv)
     fd = fopen(argv[1], "r");
 
     if (fd != NULL) {
-      tx_data[0] = 0xcc; //Création d'un header
+      tx_data[0] = 0xff; //Création d'un header
       while((c = fgetc(fd)) != EOF){
         tx_data[i] = (char) c;
         i++;
@@ -72,24 +72,26 @@ int main (int argc, char ** argv)
   }
 
 
-  //Envoie des données binaires
+  //Envoie des données bit à bit
   int * data_to_move = allocate_data(4096); //Création d'un buffer de données à écrire
   char * memory_buffer = malloc(16); //Création d'un buffer dans lequel les données seront écrites
   int j,k;
 
-  for(i=0;i<true_data_size; i++){
-    for(j = 7; j >= 0; --j){
-      if(((tx_data[i] & (1 << j)) ? 1 : 0) == 1){
-        //Emission pendant TX_TIME
-        time_t start=time(NULL);
-        while(time(NULL)-start<TX_TIME){
-          for(k=0;k<4096;k+=4){
-            mov_data(data_to_move+k, memory_buffer);
+  while (1) {
+    for(i=0;i<true_data_size; i++){
+      for(j = 7; j >= 0; --j){
+        if(((tx_data[i] & (1 << j)) ? 1 : 0) == 1){
+          //Emission pendant TX_TIME
+          time_t start=time(NULL);
+          while(time(NULL)-start<TX_TIME){
+            for(k=0;k<4096;k+=4){
+              mov_data(data_to_move+k, memory_buffer);
+            }
           }
+        } else {
+          //Non-émission pendant TX_TIME
+          usleep(TX_TIME*pow(10,6));
         }
-      } else {
-        //Non-émission pendant TX_TIME
-        usleep(TX_TIME*pow(10,6));
       }
     }
   }
