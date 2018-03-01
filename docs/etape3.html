@@ -10,7 +10,22 @@ body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
 .w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
 .w3-half img:hover{opacity:1}
+.box {
+  background-color: grey;
+  color: white;
+  padding: 10px;
+  margin-right: 30px;
+  margin-left: 30px;
+  border-radius: 10px;
+}
 </style>
+<script type="text/javascript">
+  function answer2(){
+    document.getElementById("solution").style.display = "";
+
+  }
+</script>  
+  
 <body>
 
 <!-- Sidebar/menu -->
@@ -187,18 +202,26 @@ body {font-size:16px;}
     </div>
   </div>
 
-    
-    <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
-    <p>Voici le signal nu</p>
-    <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" height="400"></center>
-    <p>Voici le signal après mag²</p>
-    <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
-    <p>Voici le signal après moyenne</p>
-    <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
-    <p>Voici le signal treshold</p>
-    <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" height="400"></center>
-    <p>Voici le signal avant de prendre la décision</p>
-    <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
+  <div class="box">
+    <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
+    <p>Maintenant que les blocs n'ont plus aucun secret pour vous, il est temps de les mettre dans l'ordre!</p>
+    <p>Noubliez pas, l'oscilloscope n'est pas fixe</p>
+    <input type="button" value="Je veux voir la solution" onclick="answer1()">
+  </div>
+  <br>
+    <div id="solution" style="display: none;">
+      <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
+      <p>Voici le signal nu</p>
+      <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" height="400"></center>
+      <p>Voici le signal après mag²</p>
+      <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
+      <p>Voici le signal après moyenne</p>
+      <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
+      <p>Voici le signal treshold</p>
+      <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" height="400"></center>
+      <p>Voici le signal avant de prendre la décision</p>
+      <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
+    </div>
   </div>
 
 <!-- End page content -->
