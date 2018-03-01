@@ -18,6 +18,18 @@ body {font-size:16px;}
   margin-left: 30px;
   border-radius: 10px;
 }
+.flotte-left {
+float:left;
+margin-right: 30px;
+}
+.flotte-right {
+float:right;
+margin-left: 30px;
+}
+.clear
+{
+clear: both;
+}
 </style>
 <script type="text/javascript">
 	flag = true;
@@ -40,6 +52,15 @@ body {font-size:16px;}
 	        fonc1();
 	    }
 	}
+  function fonc2() {
+    document.getElementById("multichannel").style.display = "";
+  }
+  function fonc3() {
+    document.getElementById("movntdq").style.display = "";
+  }
+  function fonc4() {
+    document.getElementById("fin").style.display = "";
+  }
 </script>
 <body>
 
@@ -73,6 +94,58 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge"><b>Une vulnérabilité TEMPEST</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 2</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
+  <div>
+    <p>Nous avons pu observer à l'étape 1 que certaines activités sur l'ordinateur provoquaient une variation significative du spectre.</p>
+    <p>L'idée que nous allons maintenant développer jusqu'à la fin challenge est la suivante : comme nous pouvons provoquer et contrôler une activité électromagnétique sur l'ordinateur et que celle-ci peut être observée par l'intermédiaire d'un récepteur, il nous est alors possible de créer un signal dans lequel seront codées des informations que nous souhaitons extraire de l'ordinateur.</p>
+    <p>La première question est de savoir quelle activité émettant une onde électromagnétique de façon significative nous pouvons ici utiliser et contrôler? C'est pour cette raison que nous allons décrire les architecture mémoire à multiples canaux.</p>
+    <p><input type="button" value="Je veux en savoir plus sur la mémoire à multiples canaux" onclick=fonc2()></p>
+  </div>
+
+  <div id="multichannel" style="display: none;">
+    <h1 class="w3-xlarge"><b>Architecture mémoire à multiples canaux</b></h1>
+    <div>
+      <figure class="flotte-left">
+        <img src="images/motherboard.png"/>
+        <figcaption>Architecture d'une carte mère <br>(source Wikipedia)</figcaption>
+      </figure>
+      <div>
+        <p>Le contrôleur de mémoire (encore appelé <i>Northbridge</i>) est un composant de la carte mère relié au microprocesseur et notamment en charge de lui fournir les données présentes en mémoire (RAM).</p>
+        <p>La transmission de ces données entre la RAM et le contrôleur mémoire se fait par l'intermédiaire du bus de données qui a généralement une taille de 64 bits sur les ordinateurs actuels. Cela signifie que 64 bits de données peuvent être transférés entre le contrôleur mémoire et la RAM en un seul coup d'horloge du processeur.</p>
+        <p>Comme la taille de ce bus détermine en partie les vitesse d'entrée/sortie en RAM, les constructeurs de microprocesseurs (AMD et Intel) ont cherché à améliorer les performances de ce système. </p>
+      </div>
+    </div>
+
+    <div class="clear">
+    </div>
+
+    <div>
+      <figure class="flotte-right">
+        <img src="images/mono-canal.png" />
+        <img src="images/multi-canal.png"/>
+        <figcaption>Architecture mono-canal et multi-canal</figcaption>
+      </figure>
+      <div>
+        <p>L'idée à été d'utiliser deux barrettes de RAM identiques pour agrandir le bus mémoire. Comme on peut le voir sur la figure ci-contre, ce mécanisme permet d'obtenir un bus de données de 128 bits.</p>
+        <p>Les constructeurs ont étendu ce principe à trois et quatre canaux, permettant d'obtenir des bus de données d'une taille respective de 192 et 256 bits.</p>
+        <p>Aujourd'hui, la plupart des ordinateurs sont compatibles avec les architectures à multiples cannaux.</p>
+        <p>On peut déjà voir que ce type de mécanisme, même s'il augmente la vitesse d'entrée/sortie en mémoire, est gourmand en énergie. En effet, il mobilise deux fois plus de ressources matérielles que dans le cas d'un simple canal. On sait maintenant que cela pourra potentiellement avoir des conséquences sur les émissions électromagnétiques de l'ordinateur.</p>
+        <p>Si vous avez compris les architectures à multiples canaux, voyons maintenant comment le processeur met directement en œuvre le mécanisme.</p>
+      </div>
+    </div>
+
+    <div class="clear">
+      <p><input type="button" value="J'ai compris la mémoire à multiples canaux" onclick=fonc3()></p>
+    </div>
+  </div>
+
+  <div id="movntdq" style="display: none;">
+    <h1 class="w3-xlarge"><b>L'instruction MOVNTDQ</b></h1>
+    <p><input type="button" value="J'ai compris MOVNTDQ" onclick=fonc4()></p>
+  </div>
+
+
+
+  <div id="fin" style="display: none;">
     <p><em>Mutlichannel et MOVNTDQ</em></p>
     <p>Tout d'abord, voyons si cette instruction émet bien une onde électromagnétique.</p>
     <div class="box">
@@ -97,7 +170,7 @@ function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
