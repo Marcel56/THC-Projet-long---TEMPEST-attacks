@@ -23,6 +23,9 @@ body {font-size:16px;}
   function answer(){
     document.getElementById("solution").style.display = "";
   }
+  function sig_source(){
+    document.getElementById("solution").style.display = "";
+  }
 </script>  
   
 <body>
@@ -209,17 +212,29 @@ body {font-size:16px;}
   </div>
   <br>
     <div id="solution" style="display: none;">
-      <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
-      <p>Voici le signal nu</p>
-      <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" height="400"></center>
-      <p>Voici le signal après mag²</p>
-      <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
-      <p>Voici le signal après moyenne</p>
-      <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
-      <p>Voici le signal treshold</p>
-      <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" height="400"></center>
-      <p>Voici le signal avant de prendre la décision</p>
-      <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
+      <center><img src="images/screenshot/flaw.png" alt="graphe_flux" height="400"></center>
+      <div class="box">
+        <h1 class="w3-xlarge w3-text"><b>Etape par Etape</b></h1>
+        <p>Maintenant que vous avez la solution, nous allons visualiser le signal tout au long de la démodulation</p>
+        <input type="button" value="Observons le signal qui sort de la source" onclick="sig_source()">
+      </div>
+      <br>
+      <div id="signal_nu" style="display: none;">      
+        <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
+        <p>Voici le signal nu</p>
+      
+        <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" height="400"></center>
+        <p>Voici le signal après mag²</p>
+        <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
+        <p>Voici le signal après moyenne</p>
+        <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
+        <p>Voici le signal treshold</p>
+        <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" height="400"></center>
+        <p>Voici le signal avant de prendre la décision</p>
+        <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
+<!-- End div id: signal_nu -->
+      </div>
+<!-- End div id:solution -->    
     </div>
   </div>
 
