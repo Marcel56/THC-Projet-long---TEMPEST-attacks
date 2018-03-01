@@ -26,6 +26,21 @@ body {font-size:16px;}
   function sig_source(){
     document.getElementById("signal_nu").style.display = "";
   }
+  function sig_pow(){
+    document.getElementById("puissance").style.display = "";
+  }
+  function sig_average(){
+    document.getElementById("moyenne").style.display = "";
+  }
+  function sig_tresh(){
+    document.getElementById("crenaux01").style.display = "";
+  }
+  function sig_before_clock(){
+    document.getElementById("crenaux-11").style.display = "";
+  }
+  function end(){
+    document.getElementById("fin").style.display = "";
+  }
 </script>  
   
 <body>
@@ -203,7 +218,7 @@ body {font-size:16px;}
       </div>
     </div>
   </div>
-
+  <br>
   <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
     <p>Maintenant que les blocs n'ont plus aucun secret pour vous, il est temps de les mettre dans l'ordre!</p>
@@ -222,16 +237,63 @@ body {font-size:16px;}
       <div id="signal_nu" style="display: none;">      
         <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
         <p>Voici le à la sortie de la source. </p>
-      
-        <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" height="400"></center>
-        <p>Voici le signal après mag²</p>
-        <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
-        <p>Voici le signal après moyenne</p>
-        <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
-        <p>Voici le signal treshold</p>
-        <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" height="400"></center>
-        <p>Voici le signal avant de prendre la décision</p>
-        <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
+        <br>
+        <div class="box">
+          <h1 class="w3-xlarge w3-text"><b>Puissance</b></h1>
+          <p>La prochaine étape permet de visualiser la puissance du signal</p>
+          <input type="button" value="Observons la puissance" onclick="sig_pow()">
+        </div>
+        <br>
+        <div id="puissance" style="display: none;">
+          <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" height="400"></center>
+          <p>La magnitude est la valeur absolue de l'amplitude. Cette magnitude au carré représente la puissance du signal.</p>
+          <div class="box">
+            <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
+            <p>Dans l'étape suivant, nous allons voir une puissance moyennée</p>
+            <input type="button" value="Moyennons la puissance" onclick="sig_average()">
+          </div>
+          <br>
+          <div id="moyenne" style="display: none;">
+            <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
+            <p>Voici le signal après moyenne</p>
+            <div class="box">
+              <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
+              <p>Il est maintenant temps de prendre une décision</p>
+              <input type="button" value="Fixons un seuil" onclick="sig_tresh()">
+            </div>
+            <br>
+            <div id="crenaux01" style="display: none;">
+              <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
+              <p>Voici le signal treshold</p>
+              <div class="box">
+                <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
+                <p>Pour la suite, il faut que les crénaux soient entre 1 et -1</p>
+                <input type="button" value="Travaillons le signal" onclick="sig_before_clock()">
+              </div>
+              <br>
+              <div id="crenaux-11" style="display: none;">
+                <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" height="400"></center>
+                <p>Voici le signal avant d'extraire les bits</p>
+                <div class="box">
+                  <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
+                  <p>Voilà le signal est traité. Finissons le travail</p>
+                  <input type="button" value="retrouvons nos bits" onclick="sig_fin()">
+               </div>
+               <br>
+               <div id="fin" style="display: none;">
+                 <p>Le block clock Revoery MM va nous permettre de voir le bit en fonction de la période souhaitée.</p>
+                 <p>Ca y est, on a le flag. Il est dans un fichier. Mais pour le moment, ce fichier n'est composé que d'octets. Passons à l'étape 4 pour pouvoir lire ce flag.
+                 <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
+<!-- End div id: fin -->
+                </div>          
+<!-- End div id: crenaux01 -->
+              </div>     
+<!-- End div id: crenaux01 -->
+            </div>           
+<!-- End div id: moyenne -->
+          </div>
+<!-- End div id: puissance -->
+        </div>
 <!-- End div id: signal_nu -->
       </div>
 <!-- End div id:solution -->    
