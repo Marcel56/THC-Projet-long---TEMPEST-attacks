@@ -19,6 +19,20 @@ body {font-size:16px;}
   border-radius: 10px;
 }
 </style>
+<script type="text/javascript">
+  function answer(){
+    if(document.getElementById("c").checked == true) {
+      document.getElementById("question").textContent = "Bonne réponse !";
+    } else {
+      document.getElementById("question").textContent = "Mauvaise réponse... Un analyseur de spectre est un instrument permettant d'afficher les fréquences contenues dans un signal ainsi que leurs amplitudes respectives";
+    }
+    document.getElementById("next").style.display = "";
+  }
+  function answer2(){
+    document.getElementById("fin").style.display = "";
+    document.getElementById("bouton").disabled = false;
+  }
+</script>
 <body>
 
 <!-- Sidebar/menu -->
@@ -50,19 +64,42 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge"><b>Une vulnérabilité TEMPEST</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 1</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Dans cette étape, nous allons nous assurer qu'un ordinateur émet bien des ondes électromagnétiques. Pour cela, nous allons utilser un analyseur de spectre. Cet instrument de mesure est destiné à afficher les différentes fréquences contenues dans un signal ainsi que leurs amplitudes respectives. Pour une plus grande précision, les analyseurs de spectre utilisés en laboratoire sont de ce type :</p>
+    <p>Au cours de cette première étape, nous allons montrer qu'un ordinateur émet bien des ondes électromagnétiques. Pour cela, nous allons utiliser un analyseur de spectre.</p>
+
+    <div class="box">
+    <h1 class="w3-xlarge w3-text"><b>Mais au fait...</b></h1>
+    <p>Qu'est-ce qu'un analyseur de spectre?</p>
+      <input type="radio" name="choix" id="a"> Un instrument permettant d'afficher le signal d'une onde électromagnétique </input><br>
+      <input type="radio" name="choix" id="b"> Un instrument permettant de détecter les fantômes venant hanter l'ENSEEIHT</input><br>
+      <input type="radio" name="choix" id="c"> Un instrument permettant d'afficher les fréquences contenues dans un signal ainsi que leurs amplitudes respectives</input><br>
+      <input type="radio" name="choix" id="d"> Un instrument permettant de capter, sélectionner et décoder les ondes électromagnétiques émises par un récepteur </input><br>
+      <input type="button" value="Valider" onclick="answer()">
+    <p id="question"></p>
+    </div>
+
+  <div id="next" style="display: none;">
+    <p> Il existe plusieurs types d'analyseurs de spectre. Pour une plus grande précision, les analyseurs de spectre utilisés en laboratoire sont de ce type :</p>
     <center><img src="images/1.jpg" alt="analyseur" height="400"></center>
-    <p>Ici, nous utiliserons un RTL-SDR ainsi que le logiciel URH. Le RTL-SDR, couplé à son antenne, sert à réceptionner le signal. URH sert quant à lui à l'afficher et le traiter.</p>
+    <p>Il est également possible de réaliser un analyseur de spectre à partir d'un récepteur. Celui-ci sera moins précis mais permettra néanmoins de faires un certain nombre de mesures. Nous utiliserons ici un RTL-SDR ainsi que le logiciel URH. Le RTL-SDR, couplé à son antenne, sert à réceptionner le signal. URH sert quant à lui à afficher le spectre.</p>
     <br>
     <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
-    <p>Avec URH en mode analyseur de spectre et le RTL-SDR, constatez qu'une activité sur l'ordinateur (un défilement d'une fenêtre par exemple), provoque une augmentation du signal.</p>
+    <p>Avec URH en mode analyseur de spectre (<i>File</i> > <i>Spectrum Analizer...</i>) et le RTL-SDR, constatez que l'approche de l'antenne vers l'ordinateur provoque une variation du spectre.</p>
+
+    <p>Constatez également qu'une activité sur l'ordinateur (le défilement d'une fenêtre par exemple) provoque une variation du spectre.</p>
+    <input type="button" value="J'observe bien les variations du spectre" onclick="answer2()">
     </div>
     <br>
-    <p>À présent, vous devriez être convaincu de l'existance d'émanation électromatique de l'ordinateur.</p>
-    <p>Dans l'étape 2, vous allez voir qu'il est possible de contrôler les émanations de la RAM avec un petit programme en C.</p>
-    <a href="etape2.html"><button class="w3-button w3-red">Passer à l'étape 2</button></a>
   </div>
+  <div id="fin" style="display: none;">
+    <p>À présent, vous devriez être convaincu de l'existence d'émissions électromagnétiques de la part de l'ordinateur.</p>
+    <p>Dans l'étape 2, vous allez voir qu'il est possible de contrôler certaines de ces émissions avec un petit programme en C.</p>
+  </div>
+  <br>
+  <div>
+    <a href="etape2.html"><button class="w3-button w3-red" id="bouton" disabled>Passer à l'étape 2</button></a>
+  </div>
+
 
 <!-- End page content -->
 </div>
@@ -76,7 +113,7 @@ function w3_open() {
     document.getElementById("mySidebar").style.display = "block";
     document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function w3_close() {
     document.getElementById("mySidebar").style.display = "none";
     document.getElementById("myOverlay").style.display = "none";
