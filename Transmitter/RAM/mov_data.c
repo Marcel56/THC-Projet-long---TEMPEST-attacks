@@ -18,9 +18,7 @@ int * allocate_data(int buffer_size){
   int rand_value;
   while(temp_size > 0){
     rand_value = rand()%(INT_MAX-268435456)+268435456;
-    //printf("Random value : %d\n", rand_value);
     *temp_ptr = rand_value;
-    //printf("Value in buffer : %d\n", *ptr);
     temp_size -= 1;
     temp_ptr ++;
   }
@@ -77,7 +75,7 @@ int main (int argc, char ** argv)
   //Envoie des données binaires
   int * data_to_move = allocate_data(4096); //Création d'un buffer de données à écrire
   char * memory_buffer = malloc(16); //Création d'un buffer dans lequel les données seront écrites
-  int j;
+  int j,k;
 
   for(i=0;i<true_data_size; i++){
     for(j = 7; j >= 0; --j){
@@ -85,20 +83,16 @@ int main (int argc, char ** argv)
         //Emission pendant TX_TIME
         time_t start=time(NULL);
         while(time(NULL)-start<TX_TIME){
-          for(i=0;i<4096;i+=4){
-            mov_data(data_to_move+i, memory_buffer);
+          for(k=0;k<4096;k+=4){
+            mov_data(data_to_move+k, memory_buffer);
           }
         }
-        putchar('1');
       } else {
         //Non-émission pendant TX_TIME
         usleep(TX_TIME*pow(10,6));
-        putchar('0');
       }
     }
-    putchar(' ');
   }
-  putchar('\n');
 
   return 0;
 }
