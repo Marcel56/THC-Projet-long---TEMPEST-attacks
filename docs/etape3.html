@@ -48,7 +48,7 @@ body {font-size:16px;}
 <!-- Sidebar/menu -->
 <nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
+ <div class="w3-container">
     <a href="index.html" style="text-decoration: none"><h3 class="w3-padding-64"><b>Toulouse<br>Hacking<br>Convention</b></h3></a>
 
   </div>
@@ -85,146 +85,147 @@ body {font-size:16px;}
     <p><em>La il faudrait mettre les blocs nécessaire à la démodulation du signal, expliquer leur fonctionnement et dire au gars de les mettre dans l'ordre dans GNU Radio.</em></p>
      
     <!-- Les blocs -->
+    <!-- 1ere ligne de blocs -->
   <div class="w3-cell-row w3-light-grey">
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-top">
         <center><img src="images/screenshot/topblock.png" alt="topblock" style="width:50%"></center>
-        
-          <h3>Top Block</h3>
-          <p class="w3-opacity">XXXXXX</p>
-          <p>Ce bloc contient des options pour GNU Radio. Il apparait dans le flowgraph mais n'est pas utilisé.</p>
-        
+        <h3>Top Block</h3>
+        <p class="w3-opacity">XXXXXX</p>
+        <p>Ce bloc contient des options pour GNU Radio. Il apparait dans le flowgraph mais n'est pas utilisé.</p>
       </div>
     </div>
+    <br>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/samp_rate.png" alt="sample_rate" style="width:50%"></center>
-        
-          <h3>Sample Rate</h3>
-          <p class="w3-opacity">XXXXXXX</p>
-          <p>C'est ici que nous renseignons la fréquence d'échantillonnage (en échantillons/seconde). </p>
-       
-      </div>
+        <h3>Sample Rate</h3>
+        <p class="w3-opacity">XXXXXXX</p>
+        <p>C'est ici que nous renseignons la fréquence d'échantillonnage (en échantillons/seconde). </p>
+       </div>
     </div>
+    <br>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/treshold.png" alt="Treshold" style="width:50%"></center>
-          <h3>Treshold</h3>
-          <p class="w3-opacity">XXXXXXXX</p>
-          <p>Ce bloc permet de prendre une décision en fonction d'une valeur seuil minimale et maximale.</p>
-          <p><b><u>Entrée :</u></b> Un signal</p>
-          <p><b><u>Sortie :</u></b> Des 1 ou des 0 en fonctions du seuil</p>
-        </div>
+        <h3>Treshold</h3>
+        <p class="w3-opacity">XXXXXXXX</p>
+        <p>Ce bloc permet de prendre une décision en fonction d'une valeur seuil minimale et maximale.</p>
+        <p><b><u>Entrée :</u></b> Un signal</p>
+        <p><b><u>Sortie :</u></b> Des 1 ou des 0 en fonctions du seuil</p>
+      </div>
     </div>
   </div>
   <br>
-    
-  <div class="w3-row-padding w3-grayscale">
+  <!-- 2eme ligne de blocs -->
+  <div class="w3-cell-row w3-light-grey">
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-top">
       <center><img src="images/screenshot/Source.png" alt="Source" style="width:50%"></center>
-        <div class="w3-container">
+        
           <h3>Source</h3>
           <p class="w3-opacity">XXXXXX</p>
           <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
           <p><b><u>Sortie:</u></b> Un signal</p>
-        </div>
+       
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/movi_average.png" alt="moving" style="width:50%"></center>
-        <div class="w3-container">
+
           <h3>Moving Average</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Ce bloc permet d'effectuer une moyenne glissante.</p>
           <p><b><u>Entrée :</u></b> Un signal</p>
           <p><b><u>Sortie :</u></b> Une moyenne glissante en fonction du nombre d'échantillons</p>
-        </div>
+
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/var_freq.png" alt="Variable" style="width:50%"></center>
-        <div class="w3-container">
+
           <h3>Variable</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet de déclarer un variable. Nous l'utiliserons pour modifier les valeurs de fréquences</p>
-        </div>
+
       </div>
     </div>
   </div>
-    
-  <div class="w3-row-padding w3-grayscale">
+  <br>
+  <!-- 3eme ligne de blocs -->
+  <div class="w3-cell-row w3-light-grey">
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-top">
       <center><img src="images/screenshot/Pack_bits.png" alt="Pack_Bits" style="width:50%"></center>
-        <div class="w3-container">
+
           <h3>Pack K Bits</h3>
           <p class="w3-opacity">XXXXXX</p>
           <p>Permet de concaténer les Bits de poids faible de K octets</p>
           <p><b><u>Entrée:</u></b> Des octets</p>
           <p><b><u>Sortie:</u></b> Des octets formés grâce aux LSB de l'entrée</p>
-        </div>
+
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/clock_recov.png" alt="clock_recovery" style="width:50%"></center>
-        <div class="w3-container">
+        
           <h3>Clock Recovery MM</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Ce bloc permet de définir une période</p>
           <p><b><u>Entrée:</u></b> Un signal</p>
           <p><b><u>Sortie:</u></b> Un point du signal à chaque intervalle souhaité</p>
-        </div>
+
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/File_out.png" alt="file_out" style="width:50%"></center>
-        <div class="w3-container">
+
           <h3>File Out</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet d'écrire dans un fichier.</p>
           <p><b><u>Entrée:</u></b> Des octets</p>
-        </div>
+
       </div>
     </div>
   </div>
-    
-  <div class="w3-row-padding w3-grayscale">
+  <br>  
+  <!-- 4eme ligne de blocs -->
+  <div class="w3-cell-row w3-light-grey">
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-top">
       <center><img src="images/screenshot/Source.png" alt="Source" style="width:50%"></center>
-        <div class="w3-container">
+
           <h3>Source</h3>
           <p class="w3-opacity">XXXXXX</p>
           <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
-        </div>
+
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/scope.png" alt="scope" style="width:50%"></center>
-        <div class="w3-container">
+
           <h3>WX GUI Scope Sink</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Nous avons ici un oscilloscope! Il va nous permettre de voir le signal au fil des étapes.</p>
           <p><b><u>Entrée:</u></b> Le signal que l'on veut visualiser</p>
-        </div>
+
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-light-grey">
+      <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/add_cste.png" alt="add_cste" style="width:50%"></center>
-        <div class="w3-container">
+
           <h3>Add Const</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet d'effectuer un addition avec une constante.</p>
           <p><b><u>Entrée:</u></b> Un signal</p>
           <p><b><u>Sortie:</u></b> Un signal + constante</p>
-=        </div>
+
       </div>
     </div>
   </div>
