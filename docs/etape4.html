@@ -49,7 +49,7 @@ body {font-size:16px;}
 	function valider2() {
     var answer = document.getElementById("box").value
     if(answer=="pass"){
-      document.getElementById("bravo1").style.display = "none";
+      document.getElementById("again2").style.display = "none";
       document.getElementById("bravo2").style.display = "";
     }
     else{
@@ -83,6 +83,10 @@ body {font-size:16px;}
     <a href="etape2.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 2</a>
     <a href="etape3.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 3</a>
     <a onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 4</a>
+    <br>
+  </div>
+  <div  class="w3-bar-block">
+    <a href="credit.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Crédit</a>
   </div>
 </nav>
 
@@ -104,14 +108,15 @@ body {font-size:16px;}
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 4</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
     <div id="transmitter">
-      <h1 class="w3-xlarge w3-text-red"><b>Transmission</b></h1>
+      <h1 class="w3-xlarge"><b>Transmission</b></h1>
       <p>À présent, il s'agit de modifier notre script de transmission, afin qu'il émette le binaire associé à un fichier précis.</p>
       <p>Vous pouvez le télécharger <a href="codes/malware.c">ici</a>. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM pour un 1 et ne fait rien pour un 0.
       Il tourne en boucle à l'infini, et avant de transmettre le binaire, il transmet un pattern qui ne correspond à aucun caractère ASCII. Ce pattern est 11111111.</p>
       <button class="w3-button w3-red" onclick=receiver() id="receiverButton">Reception</button>
     </div>
     <div id="receiver" style="display: none">
-      <h1 class="w3-xlarge w3-text-red"><b>Receiver</b></h1>
+      <h1 class="w3-xlarge"><b>Receiver</b></h1>
+      Nous allons maintenant construire le script C qui va convertir lire le message transmit et nous donner le flag.
       <p>Voici la fonction qui permet d'extraire le message entre deux occurrences d'un pattern :</p>
       <div class="code">
         <pre class="prettyprint">

@@ -57,6 +57,10 @@ body {font-size:16px;}
     <a href="etape1.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 1</a>
     <a href="etape2.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 2</a>
     <a onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 3</a>
+    <br>
+  </div>
+  <div class="w3-bar-block">
+    <a href="credit.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Crédit</a>
   </div>
 </nav>
 
@@ -101,7 +105,7 @@ body {font-size:16px;}
         <center><img src="images/screenshot/samp_rate.png" alt="sample_rate" style="width:50%"></center>
         <h3>Sample Rate</h3>
         <p class="w3-opacity">XXXXXXX</p>
-        <p>C'est ici que nous renseignons la fréquence d'échantillonnage (en échantillons/seconde). </p>
+        <p>C'est ici que nous renseignons la fréquence d'échantillonnage (en échantillons/seconde).</p>
        </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
@@ -142,7 +146,7 @@ body {font-size:16px;}
         <center><img src="images/screenshot/var_freq.png" alt="Variable" style="width:50%"></center>
           <h3>Variable</h3>
           <p class="w3-opacity">XXXXXXXX</p>
-          <p>Ce bloc permet de déclarer un variable. Nous l'utiliserons pour modifier les valeurs de fréquences</p>
+          <p>Ce bloc permet de déclarer un variable. Nous l'utiliserons pour modifier les valeurs de fréquences.</p>
       </div>
     </div>
   </div>
@@ -154,7 +158,7 @@ body {font-size:16px;}
       <center><img src="images/screenshot/Pack_bits.png" alt="Pack_Bits" style="width:50%"></center>
           <h3>Pack K Bits</h3>
           <p class="w3-opacity">XXXXXX</p>
-          <p>Permet de concaténer les Bits de poids faible de K octets</p>
+          <p>Permet de concaténer les Bits de poids faible de K octets.</p>
           <p><b><u>Entrée:</u></b> Des octets</p>
           <p><b><u>Sortie:</u></b> Des octets formés grâce aux LSB de l'entrée</p>
       </div>
@@ -164,7 +168,7 @@ body {font-size:16px;}
         <center><img src="images/screenshot/clock_recov.png" alt="clock_recovery" style="width:50%"></center>
           <h3>Clock Recovery MM</h3>
           <p class="w3-opacity">XXXXXXX</p>
-          <p>Ce bloc permet de définir une période</p>
+          <p>Ce bloc permet de définir une période.</p>
           <p><b><u>Entrée:</u></b> Un signal</p>
           <p><b><u>Sortie:</u></b> Un point du signal à chaque intervalle souhaité</p>
       </div>
@@ -210,7 +214,7 @@ body {font-size:16px;}
           <p><b><u>Entrée:</u></b> Un signal</p>
           <p><b><u>Sortie:</u></b> Un signal + constante</p>
       </div>
-    </div>  
+    </div>
   </div>
   <br>
   <!-- 5eme ligne de blocs -->
@@ -242,19 +246,19 @@ body {font-size:16px;}
         </div>
         <div class="w3-container w3-cell w3-cell-middle">
          <center><img src="images/screenshot/float.png" alt="add_cste" style="width:100%"></center>
-        </div>        
+        </div>
         <div class="w3-container w3-cell w3-cell-bottom">
          <center><img src="images/screenshot/byte.png" alt="add_cste" style="width:100%"></center>
         </div>
           <h3>Aide visuelle</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ces 3 couleurs sont visibles sur les blocs en entrée et en sortie. Il s'agit de repères visuels sur le type.</p>
-          <p>Bleu correspond correspond au type complexe</p>
-          <p>Orange correspond correspond au type float</p>
-          <p>Violet correspond correspond au type byte</p>
+          <p>Bleu correspond correspond au type complexe;</p>
+          <p>Orange correspond correspond au type float;</p>
+          <p>Violet correspond correspond au type byte.</p>
       </div>
-    </div>  
-  </div>    
+    </div>
+  </div>
   <br>
   <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
@@ -279,56 +283,56 @@ body {font-size:16px;}
       <div id="signal_nu" style="display: none;">
         <p>Dans toute cette partie, nous transmettons 2 bits/seconde. Le taux d'échantillonnage est de 100k/seconde. Un USRP B200 a été utilisé pour la source  de capture du signal.</p>
         <br>
-        <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
+        <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" style="max-width:90%" width="800"></center>
         <p>Voici le signal à la sortie de la source. Nous pouvons observer 2 courbes. La bleue correspond à la composante I (In-phase) du signal complexe et la verte est la composante Q (Quadrature). Ce sont respectivement les parties réélles et imaginaires. Ce nombre complexe peut être peut être également représenté sous forme exponentielle, nous donnant un module et un argument.</p>
         <center><em><p> s(t) = i(t) + jq(t) = r(t) x e <sup>jφ(t)</sup>  </p></em></center>
         <br>
         <div class="box">
           <h1 class="w3-xlarge w3-text"><b>Puissance</b></h1>
-          <p>La prochaine étape permet de visualiser la puissance du signal</p>
+          <p>La prochaine étape permet de visualiser la puissance du signal.</p>
           <input type="button" value="Observons la puissance" onclick="sig_pow()">
         </div>
         <br>
         <div id="puissance" style="display: none;">
-          <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" height="400"></center>
+          <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" style="max-width:90%" width="800"></center>
           <p>La magnitude est la valeur absolue de l'amplitude. Cette magnitude au carré représente la puissance instantannée du signal.</p>
           <center><em><p> P(t) = |r(t)|² </p></em></center>
-          <p>Nous entrevoyons la période symbole de 0,5s</p>
+          <p>Nous entrevoyons la période symbole de 0,5s.</p>
           <div class="box">
             <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
-            <p>Dans l'étape suivante, nous allons voir cette puissance moyennée</p>
+            <p>Dans l'étape suivante, nous allons voir cette puissance moyennée.</p>
             <input type="button" value="Moyennons la puissance" onclick="sig_average()">
           </div>
           <br>
           <div id="moyenne" style="display: none;">
-            <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
+            <center><img src="images/screenshot/apres_average.png" alt="signal_average" style="max-width:90%" width="800"></center>
             <p>La difficulté ici est de déterminer le nombre d'échantillons utilisés afin de pouvoir obtenir une moyenne glissante correcte. Etant donné qu'un bit prend 1/2 seconde et que le taux d'échantillonnage est de 100 000 echantillons/seconde, un symbole est composé de 50000 echantillons. Après plusieurs essais, nous avons trouvé que 6000 échantillons permet d'avoir une moyenne exploitable et nous commençons à voir les crénaux.</p>
             <div class="box">
               <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
-              <p>Il est maintenant temps de prendre une décision</p>
+              <p>Il est maintenant temps de prendre une décision.</p>
               <input type="button" value="Fixons un seuil" onclick="sig_tresh()">
             </div>
             <br>
             <div id="crenaux01" style="display: none;">
-              <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
-              <p>Le seuil est un point critique. Il faut éviter les bagots. Il est possible de fixer un seuil minimum et un seuil maximum. Sous le seuil la sortie est un '0', au dessus du seuil on obtient un '1'. Sur l'image de la moyenne, on voit clairement que 300u est un seuil convenable. Ca y est, on a nos crénaux</p>
+              <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" style="max-width:90%" width="800"></center>
+              <p>Le seuil est un point critique. Il faut éviter les bagots. Il est possible de fixer un seuil minimum et un seuil maximum. Sous le seuil la sortie est un '0', au dessus du seuil on obtient un '1'. Sur l'image de la moyenne, on voit clairement que 300u est un seuil convenable. Ca y est, on a nos crénaux.</p>
               <div class="box">
                 <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
-                <p>Pour la suite, il faut que les crénaux soient entre 1 et -1</p>
+                <p>Pour la suite, il faut que les crénaux soient entre 1 et -1.</p>
                 <input type="button" value="Travaillons le signal" onclick="sig_before_clock()">
               </div>
               <br>
               <div id="crenaux-11" style="display: none;">
-                <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" height="400"></center>
+                <center><img src="images/screenshot/apres_add_const.png" alt="avant_décision" style="max-width:90%" width="800"></center>
                 <p>En multipliant le signal précédent par 2 et en soustrayant 1, on obtient nos crénaux entre -1 et 1.</p>
                 <div class="box">
                   <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
-                  <p>Voilà le signal est traité. Finissons le travail</p>
-                  <input type="button" value="retrouvons nos bits" onclick="end()">
+                  <p>Voilà le signal est traité. Finissons le travail.</p>
+                  <input type="button" value="Retrouvons nos bits" onclick="end()">
                </div>
                <br>
                <div id="fin" style="display: none;">
-                 <p>Le block clock Revovery MM va nous permettre d'extraire une donnée toutes les 1/2 seconde. Ensuite, le binary slicer va traduire la valeur précédente en octet (00 ou 01). Puis, le Pack K bytes permet de récupérer le bit de poids faible des octets récupérés et les concatène.</p>
+                 <p>Le block clock Revovery MM va nous permettre d'extraire une donnée toutes les 1/2 seconde. Ensuite, le binary slicer va traduire la valeur précédente en octet (00 ou 01). Puis, le Pack K bytes permet de récupérer le bit de poids faible des octets récupérés et les concatèner.</p>
                  <p>Ca y est, on a le flag. Il est dans un fichier. Tous les bits y sont présent. Passons à l'étape 4 pour pouvoir lire ce flag.</p>
                  <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
 <!-- End div id: fin -->

@@ -48,9 +48,14 @@ img {
 			}
 		}
 	}
-	function runScript(e) {
+	function runScriptFonc1(e) {
 	    if (e.keyCode == 13) {
 	        fonc1();
+	    }
+	}
+  function runScriptFonc6(e) {
+	    if (e.keyCode == 13) {
+	        fonc6();
 	    }
 	}
   function fonc2() {
@@ -104,6 +109,10 @@ img {
     <a href="intro.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Introduction</a>
     <a href="etape1.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 1</a>
     <a onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Étape 2</a>
+    <br>
+  </div>
+  <div class="w3-bar-block">
+    <a href="credit.html" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Crédit</a>
   </div>
 </nav>
 
@@ -209,7 +218,7 @@ img {
                  :"m" (*(data_ptr+8))
                  :"%xmm1");
           __asm("movlhps %xmm1,%xmm0\n");  //128 bits de données dans xmm0
-          __asm("<input type="text" id="asm-input" value=""> %%xmm0,%0\n" : "=m"(*buffer_ptr));
+          __asm("<input type="text" id="asm-input" value="" onkeypress=runScriptFonc6(event) autocomplete="off"> %%xmm0,%0\n" : "=m"(*buffer_ptr));
         }
       </pre>
       <div>
@@ -239,7 +248,7 @@ img {
     <div class="box">
       <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
       <p>À quelle fréquence le signal est-il émis ?</p>
-      <input id="answer" type="number" step="0.01" name="answer" autocomplete="off" value="" onkeypress=runScript(event)>
+      <input id="answer" type="number" step="0.01" name="answer" autocomplete="off" value="" onkeypress=runScriptFonc1(event)>
       <input type="button" value="Valider" onclick=fonc1()>
       <p id="bravo"></p>
 	 </div>
