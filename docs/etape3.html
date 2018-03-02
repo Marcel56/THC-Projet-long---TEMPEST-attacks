@@ -85,9 +85,9 @@ body {font-size:16px;}
     <p><em>La il faudrait mettre les blocs nécessaire à la démodulation du signal, expliquer leur fonctionnement et dire au gars de les mettre dans l'ordre dans GNU Radio.</em></p>
      
     <!-- Les blocs -->
-  <div class="w3-cell-row">
+  <div class="w3-cell-row w3-light-grey">
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-container w3-light-grey w3-cell w3-cell-top">
+      <div class="w3-container w3-cell w3-cell-top">
         <center><img src="images/screenshot/topblock.png" alt="topblock" style="width:50%"></center>
         
           <h3>Top Block</h3>
@@ -97,7 +97,7 @@ body {font-size:16px;}
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-container w3-light-grey w3-cell w3-cell-middle">
+      <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/samp_rate.png" alt="sample_rate" style="width:50%"></center>
         
           <h3>Sample Rate</h3>
@@ -107,7 +107,7 @@ body {font-size:16px;}
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
-      <div class="w3-container w3-light-grey w3-cell w3-cell-bottom">
+      <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/treshold.png" alt="Treshold" style="width:50%"></center>
         
           <h3>Treshold</h3>
@@ -128,6 +128,7 @@ body {font-size:16px;}
           <h3>Source</h3>
           <p class="w3-opacity">XXXXXX</p>
           <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
+          <p><b><u>Sortie:</u></b> Un signal</p>
         </div>
       </div>
     </div>
@@ -138,6 +139,8 @@ body {font-size:16px;}
           <h3>Moving Average</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Ce bloc permet d'effectuer une moyenne glissante.</p>
+          <p><b><u>Entrée :</u></b> Un signal</p>
+          <p><b><u>Sortie :</u></b> Une moyenne glissante en fonction du nombre d'échantillons</p>
         </div>
       </div>
     </div>
@@ -160,7 +163,9 @@ body {font-size:16px;}
         <div class="w3-container">
           <h3>Pack K Bits</h3>
           <p class="w3-opacity">XXXXXX</p>
-          <p>Permet de concaténer les Bits de poids faible de 8 octets</p>
+          <p>Permet de concaténer les Bits de poids faible de K octets</p>
+          <p><b><u>Entrée:</u></b> Des octets</p>
+          <p><b><u>Sortie:</u></b> Des octets formés grâce aux LSB de l'entrée</p>
         </div>
       </div>
     </div>
@@ -171,6 +176,8 @@ body {font-size:16px;}
           <h3>Clock Recovery MM</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Ce bloc permet de définir une période</p>
+          <p><b><u>Entrée:</u></b> Un signal</p>
+          <p><b><u>Sortie:</u></b> Un point du signal à chaque intervalle souhaité</p>
         </div>
       </div>
     </div>
@@ -181,6 +188,7 @@ body {font-size:16px;}
           <h3>File Out</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet d'écrire dans un fichier.</p>
+          <p><b><u>Entrée:</u></b> Des octets</p>
         </div>
       </div>
     </div>
@@ -204,6 +212,7 @@ body {font-size:16px;}
           <h3>WX GUI Scope Sink</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Nous avons ici un oscilloscope! Il va nous permettre de voir le signal au fil des étapes.</p>
+          <p><b><u>Entrée:</u></b> Le signal que l'on veut visualiser</p>
         </div>
       </div>
     </div>
@@ -214,6 +223,8 @@ body {font-size:16px;}
           <h3>Add Const</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet d'effectuer un addition avec une constante.</p>
+          <p><b><u>Entrée:</u></b> Un signal</p>
+          <p><b><u>Sortie:</u></b> Un signal + constante</p>
 =        </div>
       </div>
     </div>
@@ -236,7 +247,7 @@ body {font-size:16px;}
       </div>
       <br>
       <div id="signal_nu" style="display: none;">
-        <p>Dans toute cette partie, nous transmettons 2 bits/seconde. Le taux d'échantillonnage est de 100k/seconde.</p>
+        <p>Dans toute cette partie, nous transmettons 2 bits/seconde. Le taux d'échantillonnage est de 100k/seconde. Un USRP B200 a été utilisé pour la source  de capture du signal</p>
         <br>
         <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
         <p>Voici le signal à la sortie de la source. Nous pouvons observer 2 courbes. La bleue correspond à la composante I (In-phase) du signal complexe et la verte est la composante Q (Quadrature). Ce sont respectivement les parties réélles et imaginaires. Ce nombre complexe peut être peut être également représenté sous forme exponentielle, nous donnant un module et un argument.</p>
@@ -261,7 +272,7 @@ body {font-size:16px;}
           <br>
           <div id="moyenne" style="display: none;">
             <center><img src="images/screenshot/apres_average.png" alt="signal_average" height="400"></center>
-            <p>La difficulté ici est de déterminer le nombre d'échantillons utilisés afin de pouvoir obtenir une moyenne glissante correcte. Dans notre cas nous avons pris 6000 échantillons. Nous commençons à apercevoir les crénaux.</p>
+            <p>La difficulté ici est de déterminer le nombre d'échantillons utilisés afin de pouvoir obtenir une moyenne glissante correcte. Etant donné qu'un bit prend 1/2 seconde et que le taux d'échantillonnage est de 100 000 echantillons/seconde, un symbole est composé de 50000 echantillons. Après plusieurs essais, nous avons trouvé que 6000 échantillons permet d'avoir une moyenne exploitable et nous commençons à voir les crénaux.</p>
             <div class="box">
               <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
               <p>Il est maintenant temps de prendre une décision</p>
@@ -270,7 +281,7 @@ body {font-size:16px;}
             <br>
             <div id="crenaux01" style="display: none;">
               <center><img src="images/screenshot/apres_treshold.png" alt="signal_treshold" height="400"></center>
-              <p>Le seuil est un point critique. Il faut éviter les bagots. Il est possible de fixer un seuil minimum et un seuil maximum. Sous le seuil la sortie est un '0', au dessus du seuil on obtient un '1' Ca y est, on a nos crénaux</p>
+              <p>Le seuil est un point critique. Il faut éviter les bagots. Il est possible de fixer un seuil minimum et un seuil maximum. Sous le seuil la sortie est un '0', au dessus du seuil on obtient un '1'. Sur l'image de la moyenne, on voit clairement que 300u est un seuil convenable. Ca y est, on a nos crénaux</p>
               <div class="box">
                 <h1 class="w3-xlarge w3-text"><b>Moyenne</b></h1>
                 <p>Pour la suite, il faut que les crénaux soient entre 1 et -1</p>
@@ -287,8 +298,8 @@ body {font-size:16px;}
                </div>
                <br>
                <div id="fin" style="display: none;">
-                 <p>Le block clock Revovery MM va nous permettre d'extraire toutes les 1/2 seconde. Ensuite, le binary slicer va traduire la valeur précédente en octet (00 ou 01). Puis, le Pack K bytes permet de récupérer le bit de poids faible des octets récupérés et les concatène.</p>
-                 <p>Ca y est, on a le flag. Il est dans un fichier. Mais pour le moment, ce fichier n'est composé que d'octets. Passons à l'étape 4 pour pouvoir lire ce flag.
+                 <p>Le block clock Revovery MM va nous permettre d'extraire une donnée toutes les 1/2 seconde. Ensuite, le binary slicer va traduire la valeur précédente en octet (00 ou 01). Puis, le Pack K bytes permet de récupérer le bit de poids faible des octets récupérés et les concatène.</p>
+                 <p>Ca y est, on a le flag. Il est dans un fichier. Tous les bits y sont présent. Passons à l'étape 4 pour pouvoir lire ce flag.</p>
                  <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
 <!-- End div id: fin -->
                 </div>          
