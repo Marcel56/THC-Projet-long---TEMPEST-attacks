@@ -128,7 +128,7 @@ clear: both;
         <p>L'idée à été d'utiliser deux barrettes de RAM identiques pour agrandir le bus mémoire. Comme on peut le voir sur la figure ci-contre, ce mécanisme permet d'obtenir un bus de données de 128 bits.</p>
         <p>Les constructeurs ont étendu ce principe à trois et quatre canaux, permettant d'obtenir des bus de données d'une taille respective de 192 et 256 bits.</p>
         <p>Aujourd'hui, la plupart des ordinateurs sont compatibles avec les architectures à multiples cannaux.</p>
-        <p>On peut déjà voir que ce type de mécanisme, même s'il augmente la vitesse d'entrée/sortie en mémoire, est gourmand en énergie. En effet, il mobilise deux fois plus de ressources matérielles que dans le cas d'un simple canal. On sait maintenant que cela pourra potentiellement avoir des conséquences sur les émissions électromagnétiques de l'ordinateur.</p>
+        <p>On peut déjà voir que ce type de mécanisme, même s'il augmente la vitesse d'entrée/sortie en mémoire, est gourmand en énergie. En effet, il mobilise presque deux fois plus de ressources matérielles que dans le cas d'un simple canal. On sait maintenant que cela pourra potentiellement avoir des conséquences sur les émissions électromagnétiques de l'ordinateur.</p>
         <p>Si vous avez compris les architectures à multiples canaux, voyons maintenant comment le processeur met directement en œuvre le mécanisme.</p>
       </div>
     </div>
@@ -140,6 +140,9 @@ clear: both;
 
   <div id="movntdq" style="display: none;">
     <h1 class="w3-xlarge"><b>L'instruction MOVNTDQ</b></h1>
+    <p>Du fait des mécanismes de cache et d'optimisation mis en place par le processeur, on ne peut être certain qu'une activité aura lieu sur le bus de données. Or une telle activité est nécessaire pour potentiellement obtenir l'émission d'une onde électromagnétique significative.</p>
+    <p>Heureusement, il existe des instructions liées aux processeurs modernes permettant d'activer une lecture/écriture directement depuis/vers la RAM et ce sans utiliser les mécanismes de cache. C'est par exemple le cas de l'instruction <b>MOVNTDQ <i>m128,xmm</i></b> dont le but est de directement déplacer 128 bits de données présentes dans un registre <i>xmm</i> vers une zone mémoire spécifiée.</p>
+    <p>Au delà de la non utilisation des caches, cette instruction tirera avantage de l'existence de multiples canaux afin d'effectuer l'opération en un seul coup d'horloge : un double canal présent sur la machine sera donc entièrement utilisé pour déplacer ces 128 bits de données vers la RAM en un coup d'horloge.</p>
     <p><input type="button" value="J'ai compris MOVNTDQ" onclick=fonc4()></p>
   </div>
 
