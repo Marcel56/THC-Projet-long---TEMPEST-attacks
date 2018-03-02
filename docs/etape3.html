@@ -259,21 +259,25 @@ body {font-size:16px;}
   <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
     <p>Maintenant que les blocs n'ont plus aucun secret pour vous, il est temps de les mettre dans l'ordre!</p>
-    <p>Noubliez pas, l'oscilloscope n'est pas fixe</p>
+    <p>Noubliez pas, l'oscilloscope n'est pas fixe.</p>
+    <p><u>Indice:</u> La puissance instantannée du signal est égale à l'amplitude au carré.</p>
+    <p>Vous pouvez télécharger le fichier source <a href="codes/raw_flow.grc">ici</a>.</p>
     <input type="button" value="Je veux voir la solution" onclick="answer()">
   </div>
   <br>
     <div id="solution" style="display: none;">
       <center><img src="images/screenshot/flaw.png" alt="graphe_flux" style="max-width:100%"></center>
       <br>
+      <p>La solution est téléchargeable <a href="codes/sol_flow.grc">ici</a>.</p>
+      <br>
       <div class="box">
         <h1 class="w3-xlarge w3-text"><b>Etape par Etape</b></h1>
-        <p>Maintenant que vous avez la solution, nous allons visualiser le signal tout au long de la démodulation</p>
+        <p>Maintenant que vous avez la solution, nous allons visualiser le signal tout au long de la démodulation.</p>
         <input type="button" value="Observons le signal qui sort de la source" onclick="sig_source()">
       </div>
       <br>
       <div id="signal_nu" style="display: none;">
-        <p>Dans toute cette partie, nous transmettons 2 bits/seconde. Le taux d'échantillonnage est de 100k/seconde. Un USRP B200 a été utilisé pour la source  de capture du signal</p>
+        <p>Dans toute cette partie, nous transmettons 2 bits/seconde. Le taux d'échantillonnage est de 100k/seconde. Un USRP B200 a été utilisé pour la source  de capture du signal.</p>
         <br>
         <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
         <p>Voici le signal à la sortie de la source. Nous pouvons observer 2 courbes. La bleue correspond à la composante I (In-phase) du signal complexe et la verte est la composante Q (Quadrature). Ce sont respectivement les parties réélles et imaginaires. Ce nombre complexe peut être peut être également représenté sous forme exponentielle, nous donnant un module et un argument.</p>
