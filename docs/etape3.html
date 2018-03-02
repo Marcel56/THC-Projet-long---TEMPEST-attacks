@@ -95,7 +95,7 @@ body {font-size:16px;}
         <p>Ce bloc contient des options pour GNU Radio. Il apparait dans le flowgraph mais n'est pas utilisé.</p>
       </div>
     </div>
-    <br>
+
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/samp_rate.png" alt="sample_rate" style="width:50%"></center>
@@ -104,7 +104,6 @@ body {font-size:16px;}
         <p>C'est ici que nous renseignons la fréquence d'échantillonnage (en échantillons/seconde). </p>
        </div>
     </div>
-    <br>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/treshold.png" alt="Treshold" style="width:50%"></center>
@@ -122,34 +121,28 @@ body {font-size:16px;}
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-top">
       <center><img src="images/screenshot/Source.png" alt="Source" style="width:50%"></center>
-
           <h3>Source</h3>
           <p class="w3-opacity">XXXXXX</p>
           <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
           <p><b><u>Sortie:</u></b> Un signal</p>
-
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/movi_average.png" alt="moving" style="width:50%"></center>
-
           <h3>Moving Average</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Ce bloc permet d'effectuer une moyenne glissante.</p>
           <p><b><u>Entrée :</u></b> Un signal</p>
           <p><b><u>Sortie :</u></b> Une moyenne glissante en fonction du nombre d'échantillons</p>
-
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/var_freq.png" alt="Variable" style="width:50%"></center>
-
           <h3>Variable</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet de déclarer un variable. Nous l'utiliserons pour modifier les valeurs de fréquences</p>
-
       </div>
     </div>
   </div>
@@ -159,36 +152,30 @@ body {font-size:16px;}
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-top">
       <center><img src="images/screenshot/Pack_bits.png" alt="Pack_Bits" style="width:50%"></center>
-
           <h3>Pack K Bits</h3>
           <p class="w3-opacity">XXXXXX</p>
           <p>Permet de concaténer les Bits de poids faible de K octets</p>
           <p><b><u>Entrée:</u></b> Des octets</p>
           <p><b><u>Sortie:</u></b> Des octets formés grâce aux LSB de l'entrée</p>
-
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/clock_recov.png" alt="clock_recovery" style="width:50%"></center>
-
           <h3>Clock Recovery MM</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Ce bloc permet de définir une période</p>
           <p><b><u>Entrée:</u></b> Un signal</p>
           <p><b><u>Sortie:</u></b> Un point du signal à chaque intervalle souhaité</p>
-
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/File_out.png" alt="file_out" style="width:50%"></center>
-
           <h3>File Out</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet d'écrire dans un fichier.</p>
           <p><b><u>Entrée:</u></b> Des octets</p>
-
       </div>
     </div>
   </div>
@@ -197,38 +184,77 @@ body {font-size:16px;}
   <div class="w3-cell-row w3-light-grey">
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-top">
-      <center><img src="images/screenshot/Source.png" alt="Source" style="width:50%"></center>
-
-          <h3>Source</h3>
+      <center><img src="images/screenshot/comp_to_mag2.png" alt="Complex_to_mag2" style="width:50%"></center>
+          <h3>Complex to Mag²</h3>
           <p class="w3-opacity">XXXXXX</p>
           <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
-
+          <p><b><u>Entrée:</u></b> Un signal complexe </p>
+          <p><b><u>Entrée:</u></b> La valeur absolue de l'amplitude du signal</p>
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-middle">
         <center><img src="images/screenshot/scope.png" alt="scope" style="width:50%"></center>
-
           <h3>WX GUI Scope Sink</h3>
           <p class="w3-opacity">XXXXXXX</p>
           <p>Nous avons ici un oscilloscope! Il va nous permettre de voir le signal au fil des étapes.</p>
           <p><b><u>Entrée:</u></b> Le signal que l'on veut visualiser</p>
-
       </div>
     </div>
     <div class="w3-col m4 w3-margin-bottom">
       <div class="w3-container w3-cell w3-cell-bottom">
         <center><img src="images/screenshot/add_cste.png" alt="add_cste" style="width:50%"></center>
-
           <h3>Add Const</h3>
           <p class="w3-opacity">XXXXXXXX</p>
           <p>Ce bloc permet d'effectuer un addition avec une constante.</p>
           <p><b><u>Entrée:</u></b> Un signal</p>
           <p><b><u>Sortie:</u></b> Un signal + constante</p>
-
+      </div>
+    </div>  
+  </div>
+  <br>
+  <!-- 5eme ligne de blocs -->
+  <div class="w3-cell-row w3-light-grey">
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-container w3-cell w3-cell-top">
+      <center><img src="images/screenshot/mult_cste.png" alt="mult_cste" style="width:50%"></center>
+          <h3>Multiply Const</h3>
+          <p class="w3-opacity">XXXXXX</p>
+          <p>Ce bloc permet d'effectuer une multiplication avec une constante.</p>
+          <p><b><u>Entrée:</u></b> Un signal</p>
+          <p><b><u>Sortie:</u></b> Un signal x constante</p>
       </div>
     </div>
-  </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-container w3-cell w3-cell-middle">
+        <center><img src="images/screenshot/binary_slicer.png" alt="bin_slicer" style="width:50%"></center>
+          <h3>Binary Slicer</h3>
+          <p class="w3-opacity">XXXXXXX</p>
+          <p>Permet de convertir un échantillon en octet.</p>
+          <p><b><u>Entrée:</u></b> Des echantillons</p>
+          <p><b><u>Sortie:</u></b> Des octest</p>
+      </div>
+    </div>
+    <div class="w3-col m4 w3-margin-bottom">
+      <div class="w3-container w3-cell w3-cell-bottom">
+        <div class="w3-container w3-cell w3-cell-top">
+         <center><img src="images/screenshot/cplx.png" alt="add_cste" style="width:50%"></center>
+        </div>
+        <div class="w3-container w3-cell w3-cell-middle">
+         <center><img src="images/screenshot/float.png" alt="add_cste" style="width:50%"></center>
+        </div>        
+        <div class="w3-container w3-cell w3-cell-bottom">
+         <center><img src="images/screenshot/byte.png" alt="add_cste" style="width:50%"></center>
+        </div>
+          <h3>Aide visuelle</h3>
+          <p class="w3-opacity">XXXXXXXX</p>
+          <p>Ces 3 couleurs sont visibles sur les blocs en entrée et en sortie. Il s'agit de repères visuels sur le type.</p>
+          <p>Bleu correspond correspond au type complexe</p>
+          <p>Orange correspond correspond au type float</p>
+          <p>Violet correspond correspond au type byte</p>
+      </div>
+    </div>  
+  </div>    
   <br>
   <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
@@ -238,7 +264,7 @@ body {font-size:16px;}
   </div>
   <br>
     <div id="solution" style="display: none;">
-      <center><img src="images/screenshot/flaw.png" alt="graphe_flux" height=""></center>
+      <center><img src="images/screenshot/flaw.png" alt="graphe_flux" "width:100%"></center>
       <br>
       <div class="box">
         <h1 class="w3-xlarge w3-text"><b>Etape par Etape</b></h1>
@@ -249,9 +275,9 @@ body {font-size:16px;}
       <div id="signal_nu" style="display: none;">
         <p>Dans toute cette partie, nous transmettons 2 bits/seconde. Le taux d'échantillonnage est de 100k/seconde. Un USRP B200 a été utilisé pour la source  de capture du signal</p>
         <br>
-        <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" style="width:100%"></center>
+        <center><img src="images/screenshot/raw_sig.png" alt="raw_signal" height="400"></center>
         <p>Voici le signal à la sortie de la source. Nous pouvons observer 2 courbes. La bleue correspond à la composante I (In-phase) du signal complexe et la verte est la composante Q (Quadrature). Ce sont respectivement les parties réélles et imaginaires. Ce nombre complexe peut être peut être également représenté sous forme exponentielle, nous donnant un module et un argument.</p>
-        <center><em><p> s(t) = i(t) + jq(t) = r(t) x exp(jφ(t))  </p></em></center>
+        <center><em><p> s(t) = i(t) + jq(t) = r(t) x e <sup>jφ(t)</sup>  </p></em></center>
         <br>
         <div class="box">
           <h1 class="w3-xlarge w3-text"><b>Puissance</b></h1>
