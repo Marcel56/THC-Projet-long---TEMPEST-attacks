@@ -22,6 +22,13 @@ body {font-size:16px;}
   margin-left: 30px;
   border-radius: 10px;
 }
+.select_style {
+    width: 40%;
+    padding: 2px 0px;
+    border-radius: 5px;
+    background-color: grey;
+    color: white;
+}
 </style>
 <script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script type="text/javascript">
@@ -152,7 +159,7 @@ int main(int argc, char ** argv)
 
   extract_msg(sortie, msg, pattern);
   <span id="line2" style="display: none">bin_to_ascii(msg, pass);</span>
-  <select id="line1">
+  <select id="line1" class="select_style" required>
     <option>Sélectionner la bonne fonction :</option>
     <option value="1">bin_to_hex(msg, pass);</option>
     <option value="2">bin_to_ascii(msg, pass);</option>
