@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>W3.CSS Template</title>
+<title>Toulouse Hacking Convention</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -30,7 +30,12 @@ margin-left: 30px;
 {
 clear: both;
 }
+.code{
+  margin-left:30px;
+  margin-right:30px;
+}
 </style>
+<script src="https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js"></script>
 <script type="text/javascript">
 	flag = true;
 	function fonc1(){
@@ -59,7 +64,25 @@ clear: both;
     document.getElementById("movntdq").style.display = "";
   }
   function fonc4() {
-    document.getElementById("fin").style.display = "";
+    document.getElementById("sumup").style.display = "";
+  }
+  function fonc5() {
+    if(document.getElementById("b").checked == true) {
+      document.getElementById("question").textContent = "Bonne réponse ! Nous allons en effet devoir écrire des instructions en langage assembleur et le C est tout indiqué pour cela.";
+    } else if (document.getElementById("d").checked == true) {
+      document.getElementById("question").textContent = "Mince... Tournez-vous vers l'encadrant pour faire le point avec lui.";
+    } else {
+      document.getElementById("question").textContent = "Mauvaise réponse... L'idée va être d'écrire des données en mémoire en utilisant des instructions en langage assembleur. Le C est tout indiqué pour cela.";
+    }
+    document.getElementById("asm").style.display = "";
+  }
+  function fonc6() {
+    if(document.getElementById("asm-input").value.toLowerCase() == "movntdq") {
+      document.getElementById("asm-answer").textContent = "Bonne réponse ! En effet, cette dernière instruction assembleur a pour effet d'écrire les 128 bits de données présents dans le registre xmm0 vers un buffer en mémoire.";
+    } else {
+      document.getElementById("asm-answer").textContent = "Mauvaise réponse... Il fallait écrire l'instruction MOVNTDQ. En effet, cette dernière instruction assembleur a pour effet d'écrire les 128 bits de données présents dans le registre xmm0 vers un buffer en mémoire. ";
+    }
+    document.getElementById("meo").style.display = "";
   }
 </script>
 <body>
@@ -91,7 +114,7 @@ clear: both;
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-xxxlarge"><b>Une vulnérabilité TEMPEST</b></h1>
+    <h1 class="w3-xxxlarge"><b>Wanna TEMPEST your computer?</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 2</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
   <div>
@@ -146,19 +169,78 @@ clear: both;
     <p><input type="button" value="J'ai compris MOVNTDQ" onclick=fonc4()></p>
   </div>
 
+  <div class="box" id="sumup" style="display: none;">
+    <h1 class="w3-xlarge w3-text"><b>Résumons un peu...</b></h1>
+    <p>Nous venons de voir deux choses importantes :</p>
+    <ol>
+      <li>Les architectures à multiples canaux génèrent potentiellement des émissions électromagnétiques significatives</li>
+      <li>L'instruction <b>MOVNTDQ</b> du processeur permet de mettre en œuvre une activité sur le bus de données en utilisant les canaux multiples</li>
+    </ol>
+    <p>Que pouvons nous faire maintenant pour vérifier ces deux points?</p>
+    <input type="radio" name="choix" id="a"> Rien / Je ne sais pas </input><br>
+    <input type="radio" name="choix" id="b"> Réaliser un programme en C qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
+    <input type="radio" name="choix" id="c"> Réaliser un programme Python qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
+    <input type="radio" name="choix" id="d"> Chercher plus d'informations sur Internet parce qu'on ne comprend pas où les créateurs du challenge veulent en venir </input><br>
+    <input type="button" value="Valider" onclick="fonc5()">
+    <p id="question"></p>
+  </div>
 
+  <div id="asm" style="display: none;">
+    <div>
+      <p>L'idée maintenant est d'utiliser les fonctions assembleur du langage C pour mettre en œuvre une écriture en mémoire.</p>
+      <p>Voici le code C de la fonction mettant en œuvre certaines instructions assembleur. Complétez l'instruction manquante :</p>
+    </div>
+    <div class="code">
+      <pre class="prettyprint">
+        void mov_data(int * data_ptr,char * buffer_ptr )
+        {
+          __asm("movq %0,%%xmm0\n"  //Écriture dans xmm0 de 64 bits de données
+                 :
+                 :"m" (*data_ptr)
+                 :"%xmm0");
+          __asm("movq %0,%%xmm1\n"  //Écriture dans xmm1 de 64 bits de données
+                 :
+                 :"m" (*(data_ptr+8))
+                 :"%xmm1");
+          __asm("movlhps %xmm1,%xmm0\n");  //128 bits de données dans xmm0
+          __asm("<input type="text" id="asm-input" value=""> %%xmm0,%0\n" : "=m"(*buffer_ptr));
+        }
+      </pre>
+      <div>
+        <input type="button" value="Valider" onclick="fonc6()">
+        <p id="asm-answer"></p>
+      </div>
+    </div>
+  </div>
 
-  <div id="fin" style="display: none;">
-    <p><em>Mutlichannel et MOVNTDQ</em></p>
-    <p>Tout d'abord, voyons si cette instruction émet bien une onde électromagnétique.</p>
+  <div id="meo" style="display: none;">
+    <h1 class="w3-xlarge w3-text"><b>Mise en œuvre</b></h1>
+    <p>Maintenant que nous avons une fonction réalisant une activité sur le bus de données, vérifions que celle-ci provoque des émissions électromagnétiques significatives. Il faudra pour cela parcourir le spectre de fréquences grâce à la fonction analyseur de spectre d'URH.</p>
+
     <div class="box">
-    <p>Complétez le fichier C pré-rempli, compilez-le et observez le signal à l'analyseur de spectre.</p>
-    <p>Que se passe-t-il ? À quelle fréquence est émis le signal ?</p>
-    <input id="answer" type="number" step="0.01" name="answer" autocomplete="off" value="" onkeypress=runScript(event)>
-    <input type="button" value="Valider" onclick=fonc1()>
-    <p id="bravo"></p>
-	</div>
-	<p><a href="etape3.html"><button id="bouton" class="w3-button w3-red" disabled>Passer à l'étape 3</button></a></p>
+      <h1 class="w3-xlarge w3-text"><b>Indication</b></h1>
+        <p>Positionnez l'antenne du RTL-SDR à proximité du PC. Parcourez le spectre entre 100MHz et 400MHz. En effet, si une émissions électromagnétique peut être observée, la fréquence de celle-ci se situera aux alentours de la fréquence d'entrée/sortie du bus de données.</p>
+        <p>La fréquence des barrettes de RAM étant de 400MHz, les écritures en mémoire ne pourront donc pas se faire à une fréquence supérieure.</p>
+    </div>
+
+    <p>Lancez le programme <i>mov_data1.c</i> sur le PC attaqué. Ce programme réalise successivement les opérations suivantes :
+      <ul>
+        <li>Écriture de données en RAM pendant une période d'une seconde</li>
+        <li>Aucune activité pendant une période d'une seconde</li>
+      </ul>
+    </p>
+    <p>Ainsi, nous devrions observer en alternance une activité et une non-activité à une certaine fréquence.</p>
+    <div class="box">
+      <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
+      <p>À quelle fréquence le signal est-il émis ?</p>
+      <input id="answer" type="number" step="0.01" name="answer" autocomplete="off" value="" onkeypress=runScript(event)>
+      <input type="button" value="Valider" onclick=fonc1()>
+      <p id="bravo"></p>
+	 </div>
+  </div>
+
+  <div id="fin">
+    <p><a href="etape3.html"><button id="bouton" class="w3-button w3-red" disabled>Passer à l'étape 3</button></a></p>
   </div>
 
 <!-- End page content -->
