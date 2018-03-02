@@ -57,6 +57,11 @@ body {font-size:16px;}
     }
   }
 
+  function receiver() {
+    document.getElementById("receiver").style.display = "";
+    document.getElementById("receiverButton").style.display = "none";
+  }
+
   function runScript(e) {
 	    if (e.keyCode == 13) {
 	        valider2();
@@ -98,96 +103,109 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge"><b>Wanna TEMPEST your computer?</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 4</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Maintenant, il s'agit de controler quelle séquence de bit on souhaite envoyer.</p>
-    <p>Voici la fonction qui permet d'extraire le message entre deux occurrences d'un pattern :</p>
-    <div class="code">
-      <pre class="prettyprint">
-void extract_msg(FILE * fic, char * msg, char * pattern)
-{
-  // Extrait la charge utile du fichier obtenu à la réception du signal
-  // Met le résultat en binaire dans la chaine "msg"
-  char chaine[TAILLE_MAX],
-       tmp1[TAILLE_MAX],
-       *tmp2,
-       tmp3[TAILLE_MAX]="",
-       *tmp4,
-       bin[TAILLE_MAX]="";
-
-  while (fgets(chaine, TAILLE_MAX, fic) != NULL)
-  {
-    memset (tmp1, 0, sizeof (tmp1));
-    strncpy(tmp1, chaine+10, 55);
-    rem_space(tmp1);
-    strcat(bin, tmp1);
-  }
-  tmp2 = strstr(bin, pattern);
-  strcpy(tmp3, tmp2+strlen(pattern));
-  tmp4 = strstr(tmp3, pattern);
-  strncpy(msg, tmp3, tmp4-tmp3);
-}
-      </pre>
+    <div id="transmitter">
+      <h1 class="w3-xlarge w3-text-red"><b>Transmission</b></h1>
+      <p>À présent, il s'agit de modifier notre script de transmission, afin qu'il émette le binaire associé à un fichier précis.</p>
+      <p>Vous pouvez le télécharger <a href="codes/malware.c">ici</a>. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM pour un 1 et ne fait rien pour un 0.
+      Il tourne en boucle à l'infini, et avant de transmettre le binaire, il transmet un pattern qui ne correspond à aucun caractère ASCII. Ce pattern est 11111111.</p>
+      <button class="w3-button w3-red" onclick=receiver() id="receiverButton">Reception</button>
     </div>
-
-    <p>Complétez à présent le <em>main</em> du programme.
-    <div class="code">
-      <pre class="prettyprint">
-int main(int argc, char ** argv)
-{
-  // Déclaration des variables
-  char commande[30] = "xxd -b ",
-       msg[TAILLE_MAX]="",
-       *pattern="11111111",
-       pass[TAILLE_MAX]="";
-  FILE *sortie;
-
-  // Teste du nombre d'argument
-  if(argc!=2)
+    <div id="receiver" style="display: none">
+      <h1 class="w3-xlarge w3-text-red"><b>Receiver</b></h1>
+      <p>Voici la fonction qui permet d'extraire le message entre deux occurrences d'un pattern :</p>
+      <div class="code">
+        <pre class="prettyprint">
+  void extract_msg(FILE * fic, char * msg, char * pattern)
   {
-    printf("%s\n", "Il faut un argument");
-    exit(1);
+    // Extrait la charge utile du fichier obtenu à la réception du signal
+    // Met le résultat en binaire dans la chaine "msg"
+    char chaine[TAILLE_MAX],
+         tmp1[TAILLE_MAX], // Les tmp sont des chaines temporaires pour le formatage.
+         *tmp2,
+         tmp3[TAILLE_MAX]="",
+         *tmp4,
+         bin[TAILLE_MAX]="";
+
+    while (fgets(chaine, TAILLE_MAX, fic) != NULL) // On lit chaque ligne du fichier
+                                                   // dans chaine.
+    {
+      memset (tmp1, 0, sizeof (tmp1)); // On initialise tmp1 à la chaine vide.
+      strncpy(tmp1, chaine+10, 55); // On garde garde la partie binaire de chaine
+                                    // dans tmp1.
+      rem_space(tmp1); // On enlève les espaces de tmp1.
+      strcat(bin, tmp1); // On récupère le binaire entier du fichier dans bin.
+    }
+    tmp2 = strstr(bin, pattern); // On stocke la position de la première occurrence
+                                 // du pattern dans tmp2.
+    strcpy(tmp3, tmp2+strlen(pattern)); // On enlève ce pattern et on stocke le
+                                        // résultat dans tmp3.
+    tmp4 = strstr(tmp3, pattern); // On localise la deuxième occurrence du pattern.
+    strncpy(msg, tmp3, tmp4-tmp3); // On garde uniquement le binaire du flag dans msg.
   }
-
-  // Ouverture du fichier
-  strcat(commande, argv[1]);
-  sortie = popen(commande, "r");
-  if(sortie == NULL)
-  {
-    perror("Erreur popen ");
-    exit(EXIT_FAILURE);
-
-  }
-
-  extract_msg(sortie, msg, pattern);
-  <span id="line2" style="display: none">bin_to_ascii(msg, pass);</span>
-  <select id="line1" class="select_style" required>
-    <option>Sélectionner la bonne fonction :</option>
-    <option value="1">bin_to_hex(msg, pass);</option>
-    <option value="2">bin_to_ascii(msg, pass);</option>
-    <option value="3">hex_to_ascii(msg, pass);</option>
-  </select>
-  printf("pass = %s\n", pass);
-  pclose(sortie);
-
-  return 0;
-}
-      </pre>
-    </div>
-    <div id="valider">
-      <button class="w3-button w3-red" onclick=valider1()>Valider</button>
-      <p id="again1" style="display: none">Try Again</p>
-    </div>
-    <div id="bravo1" style="display: none">
-      <p> Bravo ! Vous pouvez télécharger le source <a href="codes/demodulation.c">ici</a>.</p>
-      <div class="box">
-        <p> À présent, vous avez tous les éléments pour trouver le flag.</p>
-        <input id="box" type="text" placeholder="Entrez le flag" onkeypress=runScript(event) autocomplete="off"></input>
-        <input type="button" value="Valider" onclick=valider2()></input>
-        <p id="again2" style="display: none">Try Again</p>
+        </pre>
       </div>
-    </div>
-    <div id="bravo2" style="display: none">
-      <p>Félicitation ! Le flag était bien "pass". Vous avez terminé le challenge !!</p>
-      <a href="conclusion.html"><button class="w3-button w3-red">Conclusion</button></a>
+
+      <p>Complétez à présent le <em>main</em> du programme.</p>
+      <div class="code">
+        <pre class="prettyprint">
+  int main(int argc, char ** argv)
+  {
+    // Déclaration des variables
+    char commande[30] = "xxd -b ",
+         msg[TAILLE_MAX]="",
+         *pattern="11111111",
+         pass[TAILLE_MAX]="";
+    FILE *sortie;
+
+    // Teste du nombre d'argument
+    if(argc!=2)
+    {
+      printf("%s\n", "Il faut un argument");
+      exit(1);
+    }
+
+    // Ouverture du fichier
+    strcat(commande, argv[1]);
+    sortie = popen(commande, "r");
+    if(sortie == NULL)
+    {
+      perror("Erreur popen ");
+      exit(EXIT_FAILURE);
+
+    }
+
+    extract_msg(sortie, msg, pattern);
+    <span id="line2" style="display: none">bin_to_ascii(msg, pass);</span>
+    <select id="line1" class="select_style" required>
+      <option>Sélectionner la bonne fonction :</option>
+      <option value="1">bin_to_hex(msg, pass);</option>
+      <option value="2">bin_to_ascii(msg, pass);</option>
+      <option value="3">hex_to_ascii(msg, pass);</option>
+    </select>
+    printf("pass = %s\n", pass);
+    pclose(sortie);
+
+    return 0;
+  }
+        </pre>
+      </div>
+      <div id="valider">
+        <button class="w3-button w3-red" onclick=valider1()>Valider</button>
+        <p id="again1" style="display: none">Try Again</p>
+      </div>
+      <div id="bravo1" style="display: none">
+        <p> Bravo ! Vous pouvez télécharger le source <a href="codes/demodulation.c">ici</a>.</p>
+        <div class="box">
+          <p> À présent, vous avez tous les éléments pour trouver le flag.</p>
+          <input id="box" type="text" placeholder="Entrez le flag" onkeypress=runScript(event) autocomplete="off"></input>
+          <input type="button" value="Valider" onclick=valider2()></input>
+          <p id="again2" style="display: none">Try Again</p>
+        </div>
+      </div>
+      <div id="bravo2" style="display: none">
+        <p>Félicitation ! Le flag était bien "pass". Vous avez terminé le challenge !!</p>
+        <a href="conclusion.html"><button class="w3-button w3-red">Conclusion</button></a>
+      </div>
     </div>
   </div>
 
