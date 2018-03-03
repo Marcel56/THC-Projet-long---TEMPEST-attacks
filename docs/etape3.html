@@ -190,7 +190,7 @@ body {font-size:16px;}
         <br>
         <center><img src="images/screenshot/comp_to_mag2.png" alt="Complex_to_mag2" style="width:50%"></center>
         <h3>Complex to Mag²</h3>
-        <p>Ce bloc permet de configurer la source pour la capture du signal.</p>
+        <p>Ce bloc permet de passer d'un signal complexe à l'amplitude du signal au carré.</p>
         <p><b><u>Entrée:</u></b> Un signal complexe </p>
         <p><b><u>Entrée:</u></b> La valeur absolue de l'amplitude du signal</p>
       </div>
@@ -262,9 +262,10 @@ body {font-size:16px;}
   <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
     <p>Maintenant que les blocs n'ont plus aucun secret pour vous, il est temps de les mettre dans l'ordre! Afin de vous faciliter la tâche, tous les blocs ont été préconfigurés.</p>
+    <p>Lancez maintenant le programme <em>mov_data1.c</em> sur le PC émetteur et branchez le RTL/USRP sur le récepteur. Lancez Gnuradio et ouvrez le fichier <em>raw_flow.grc</em></p>
     <p>Noubliez pas, l'oscilloscope n'est pas fixe.</p>
-    <p><u>Indice:</u> La puissance instantannée du signal est égale à l'amplitude au carré.</p>
     <p>Vous pouvez télécharger le fichier source <a href="codes/raw_flow.grc">ici</a>.</p>
+    <p><u>Indice:</u> La puissance instantannée du signal est égale à l'amplitude au carré.</p>
     <input type="button" value="Je veux voir la solution" onclick="answer()">
   </div>
   <br>
@@ -294,7 +295,7 @@ body {font-size:16px;}
         <br>
         <div id="puissance" style="display: none;">
           <center><img src="images/screenshot/apres_mag2.png" alt="signal_mag2" style="max-width:90%" width="800"></center>
-          <p>La magnitude est la valeur absolue de l'amplitude. Cette magnitude au carré représente la puissance instantannée du signal.</p>
+          <p>Le terme anglais "magnitude" est en réalité la valeur absolue de l'amplitude. Cette valeur absolue de l'amplitude au carré représente la puissance instantannée du signal.</p>
           <center><em><p> P(t) = |r(t)|² </p></em></center>
           <p>Nous entrevoyons la période symbole de 0,5s.</p>
           <div class="box">
