@@ -48,7 +48,7 @@ body {font-size:16px;}
 
 	function valider2() {
     var answer = document.getElementById("box").value
-    if(answer=="pass"){
+    if(answer=="t3mpestmeifyoucan!"){
       document.getElementById("again2").style.display = "none";
       document.getElementById("bravo2").style.display = "";
     }
@@ -60,6 +60,11 @@ body {font-size:16px;}
   function receiver() {
     document.getElementById("receiver").style.display = "";
     document.getElementById("receiverButton").style.display = "none";
+  }
+
+  function transmitter() {
+    document.getElementById("transmitter").style.display = "";
+    document.getElementById("transmitterButton").style.display = "none";
   }
 
   function runScript(e) {
@@ -107,16 +112,39 @@ body {font-size:16px;}
     <h1 class="w3-xxxlarge"><b>Wanna TEMPEST your computer?</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 4</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <div id="transmitter">
+    <div>
+      <p>Résumons les étapes précédentes :
+        <ul>
+          <li>Nous avons vu qu'un ordinateur émettait des ondes électromagnétiques;</li>
+          <li>Nous avons écrit un programme permettant de transmettre une binaire constitué d'une altérnance de 0 et de 1 en stimulant la RAM;</li>
+          <li>Nous savons réceptionner le signal émis par la RAM dans un fichier sur l'ordinateur de l'attaquant.</li>
+        </ul>
+      </p>
+      <p>À présent, revenons à l'objectif principal de ce challenge : transmettre le flag (chaîne de caractère), contenu un fichier de l'ordinateur de la victime, en stimulant le RAM et afficher le résultat sous forme de chaîne de caractère sur l'ordinateur de l'attaquant.</p>
+      <p>Il reste donc deux étapes :
+        <ul>
+          <li>La transmission : écrire le malware permettant transmettre le flag en continu;</li>
+          <li>La réception : écrire le programme affichant le binaire reçu sous forme de chaîne de caractère.</li>
+        </ul>
+      </p>
+      <button class="w3-button w3-red" onclick=transmitter() id="transmitterButton">Transmission</button>
+      <br>
+    </div>
+    <div id="transmitter" style="display: none">
       <h1 class="w3-xlarge"><b>Transmission</b></h1>
       <p>À présent, il s'agit de modifier notre script de transmission, afin qu'il émette le binaire associé à un fichier précis.</p>
-      <p>Vous pouvez le télécharger <a href="codes/malware.c">ici</a>. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM pour un 1 et ne fait rien pour un 0.
-      Il tourne en boucle à l'infini, et avant de transmettre le binaire, il transmet un pattern qui ne correspond à aucun caractère ASCII. Ce pattern est 11111111.</p>
+      <p>Cette étape étant trop longue pour être réalisée dans le temps imparti, vous pouvez le télécharger <a href="codes/malware.c">ici</a>. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM 0.5s pour transmettre un 1 et ne fait rien pendant 0.5s pour transmettre un 0.
+      Il tourne en boucle à l'infini, et avant de transmettre le binaire, il transmet un pattern qui ne correspond à aucun caractère ASCII. Ce pattern permet de localiser la position du flag lors de la réception (qui sera entre deux occurrences du pattern). Nous avons alors choisit pattern='11111111'.</p>
+      <div class="box">
+        <p>Exécuter alors le malware sur l'ordinateur de la victime.</p>
+      </div>
+      <p>Passons à présent à l'étape de réception.</p>
       <button class="w3-button w3-red" onclick=receiver() id="receiverButton">Reception</button>
+      <br>
     </div>
     <div id="receiver" style="display: none">
-      <h1 class="w3-xlarge"><b>Receiver</b></h1>
-      Nous allons maintenant construire le script C qui va convertir lire le message transmit et nous donner le flag.
+      <h1 class="w3-xlarge"><b>Reception</b></h1>
+      <p>Nous allons maintenant construire le script C qui va convertir lire le message reçu et afficher le flag sous forme d'une chaîne de caractère.</p>
       <p>Voici la fonction qui permet d'extraire le message entre deux occurrences d'un pattern :</p>
       <div class="code">
         <pre class="prettyprint">
@@ -149,8 +177,9 @@ body {font-size:16px;}
   }
         </pre>
       </div>
-
-      <p>Complétez à présent le <em>main</em> du programme.</p>
+      <div class="box">
+        <p>Complétez à présent le <em>main</em> du programme.</p>
+      </div>
       <div class="code">
         <pre class="prettyprint">
   int main(int argc, char ** argv)
@@ -181,7 +210,7 @@ body {font-size:16px;}
 
     extract_msg(sortie, msg, pattern);
     <span id="line2" style="display: none">bin_to_ascii(msg, pass);</span>
-    <select id="line1" class="select_style" required>
+    <select id="line1" class="select_style" autocomplete="off" required>
       <option>Sélectionner la bonne fonction :</option>
       <option value="1">bin_to_hex(msg, pass);</option>
       <option value="2">bin_to_ascii(msg, pass);</option>
@@ -201,7 +230,7 @@ body {font-size:16px;}
       <div id="bravo1" style="display: none">
         <p> Bravo ! Vous pouvez télécharger le source <a href="codes/demodulation.c">ici</a>.</p>
         <div class="box">
-          <p> À présent, vous avez tous les éléments pour trouver le flag.</p>
+          <p> À présent, utilisez ce programme pour afficher le flag à partir du fichier obtenu à l'étape 3 (analysée bien le <em>main</em> pour comprendre quel argument attend le programe).</p>
           <input id="box" type="text" placeholder="Entrez le flag" onkeypress=runScript(event) autocomplete="off"></input>
           <input type="button" value="Valider" onclick=valider2()></input>
           <p id="again2" style="display: none">Try Again</p>
