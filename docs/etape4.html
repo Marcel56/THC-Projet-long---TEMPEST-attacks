@@ -116,12 +116,12 @@ body {font-size:16px;}
       <p>Résumons les étapes précédentes :
         <ul>
           <li>Nous avons vu qu'un ordinateur émettait des ondes électromagnétiques;</li>
-          <li>Nous avons écrit un programme permettant de transmettre une binaire constitué d'une altérnance de 0 et de 1 en stimulant la RAM;</li>
+          <li>Nous avons écrit un programme permettant de transmettre une séquence binaire constituée d'une alternance de 0 et de 1 à destination de la RAM;</li>
           <li>Nous savons réceptionner le signal émis par la RAM dans un fichier sur l'ordinateur de l'attaquant.</li>
         </ul>
       </p>
-      <p>À présent, revenons à l'objectif principal de ce challenge : transmettre le flag (chaîne de caractère), contenu un fichier de l'ordinateur de la victime, en stimulant le RAM et afficher le résultat sous forme de chaîne de caractère sur l'ordinateur de l'attaquant.</p>
-      <p>Il reste donc deux étapes :
+      <p>À présent, revenons à l'objectif principal de ce challenge : transmettre une information (un flag constitué d'une chaîne de caractère) contenu dans un fichier de l'ordinateur de la victime. Pour cela, nous pourrons stimuler la RAM comme dans l'étape 2 et réceptionner l'information comme dans l'étape 3. Nous pourrons enfin afficher le résultat sous forme d'une chaîne de caractère sur l'ordinateur de l'attaquant.</p>
+      <p>Il reste donc deux étapes à réaliser :
         <ul>
           <li>La transmission : écrire le malware permettant transmettre le flag en continu;</li>
           <li>La réception : écrire le programme affichant le binaire reçu sous forme de chaîne de caractère.</li>
@@ -132,8 +132,8 @@ body {font-size:16px;}
     </div>
     <div id="transmitter" style="display: none">
       <h1 class="w3-xlarge"><b>Transmission</b></h1>
-      <p>À présent, il s'agit de modifier notre script de transmission, afin qu'il émette le binaire associé à un fichier précis.</p>
-      <p>Cette étape étant trop longue pour être réalisée dans le temps imparti, vous pouvez le télécharger <a href="codes/malware.c">ici</a>. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM 0.5s pour transmettre un 1 et ne fait rien pendant 0.5s pour transmettre un 0.
+      <p>À présent, il s'agit de modifier notre script de transmission afin qu'il émette le binaire associé à un fichier précis.</p>
+      <p>Cette étape étant trop longue pour être réalisée dans le temps imparti, vous pouvez télécharger <a href="codes/malware.c">ici</a> le fichier C modifié. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM 0.5s pour transmettre un 1 et ne fait rien pendant 0.5s pour transmettre un 0.
       Il tourne en boucle à l'infini, et avant de transmettre le binaire, il transmet un pattern qui ne correspond à aucun caractère ASCII. Ce pattern permet de localiser la position du flag lors de la réception (qui sera entre deux occurrences du pattern). Nous avons alors choisit pattern='11111111'.</p>
       <div class="box">
         <p>Exécuter alors le malware sur l'ordinateur de la victime.</p>
