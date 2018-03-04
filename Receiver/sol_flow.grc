@@ -191,7 +191,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(688, 444)</value>
+      <value>(368, 388)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -238,7 +238,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(240, 320)</value>
+      <value>(216, 280)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -281,15 +281,15 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>file</key>
-      <value>C:\Users\guill\Desktop\projet long\test</value>
+      <value>C:\Users\guill\Desktop\projet long\pack_bytes</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1096, 92)</value>
+      <value>(768, 12)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -297,7 +297,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_file_sink_0</value>
+      <value>blocks_file_sink_2</value>
     </param>
     <param>
       <key>type</key>
@@ -305,7 +305,7 @@
     </param>
     <param>
       <key>unbuffered</key>
-      <value>True</value>
+      <value>False</value>
     </param>
     <param>
       <key>vlen</key>
@@ -332,7 +332,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 300)</value>
+      <value>(400, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -391,7 +391,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(504, 444)</value>
+      <value>(72, 388)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -438,7 +438,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1104, 224)</value>
+      <value>(792, 116)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -481,7 +481,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(592, 300)</value>
+      <value>(576, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -489,7 +489,7 @@
     </param>
     <param>
       <key>high</key>
-      <value>0.0003</value>
+      <value>0.300</value>
     </param>
     <param>
       <key>id</key>
@@ -501,7 +501,7 @@
     </param>
     <param>
       <key>low</key>
-      <value>0.0003</value>
+      <value>0.300</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -532,7 +532,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(888, 272)</value>
+      <value>(808, 208)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -571,7 +571,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(896, 372)</value>
+      <value>(736, 356)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -607,7 +607,7 @@
     </param>
     <param>
       <key>omega</key>
-      <value>50000</value>
+      <value>100000</value>
     </param>
     <param>
       <key>type</key>
@@ -638,7 +638,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(400, 92)</value>
+      <value>(368, 36)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -705,7 +705,7 @@
     </param>
     <param>
       <key>gain0</key>
-      <value>20</value>
+      <value>50</value>
     </param>
     <param>
       <key>lo_export0</key>
@@ -1857,7 +1857,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(152, 140)</value>
+      <value>(136, 100)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2052,7 +2052,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(568, 16)</value>
+      <value>(520, 16)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2139,7 +2139,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(872, 28)</value>
+      <value>(592, 428)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2199,7 +2199,7 @@
     </param>
     <param>
       <key>y_axis_label</key>
-      <value>Counts</value>
+      <value>Count</value>
     </param>
   </block>
   <connection>
@@ -2234,7 +2234,7 @@
   </connection>
   <connection>
     <source_block_id>blocks_pack_k_bits_bb_0</source_block_id>
-    <sink_block_id>blocks_file_sink_0</sink_block_id>
+    <sink_block_id>blocks_file_sink_2</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
