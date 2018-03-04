@@ -17,7 +17,7 @@ Vous trouverez dans ce dépôt les différents documents réalisés dans le cadr
 
 ## Comment utiliser ce dépôt?
 
-Le dossier docs contient les pages web permettant de résoudre le challenge. Il est possible d'accéder directement à la page du challenge en [ici](https://marcel56.github.io/THC-Projet-long---TEMPEST-attacks/).
+Le dossier docs contient les pages web permettant de résoudre le challenge. Il est possible d'accéder directement à la page du challenge [ici](https://marcel56.github.io/THC-Projet-long---TEMPEST-attacks/).
 
 Le dossier Transmitter contient les fichiers devant être présents et compilé sur la machine attaquée. Le fichier flag ne devra être lisible que par root et le binaire compilé du fichier malware.c devra être en suid root pour être le seul à pouvoir lire le flag.
 
