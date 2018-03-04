@@ -85,7 +85,7 @@ body {font-size:16px;}
     <p><b><a href="https://www.gnuradio.org/">GNURadio</a></b> est une suite logicielle open-source dédiée à l'implémentation de radios logicielles et de systèmes de traitement du signal. Les fonctions de traitement du signal sont implémentées en C++ et les modules complémentaires en Python.</p>
     <p>Grace à son interface graphique, nous allons pouvoir assembler ces modules que nous appellerons "blocs".</p>
     <p>Voici la liste et les informations utiles sur les blocs qui sont nécessaires à la démodulation B-ASK.</p>
-   
+
 
     <!-- Les blocs -->
     <!-- 1ere ligne de blocs -->
@@ -262,9 +262,8 @@ body {font-size:16px;}
   <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>
     <p>Maintenant que les blocs n'ont plus aucun secret pour vous, il est temps de les mettre dans l'ordre! Afin de vous faciliter la tâche, tous les blocs ont été préconfigurés.</p>
-    <p>Lancez maintenant le programme <em>mov_data1.c</em> sur le PC émetteur et branchez le RTL/USRP sur le récepteur. Lancez Gnuradio et ouvrez le fichier <em>raw_flow.grc</em></p>
+    <p>Pour cela, lancez le programme <em>mov_data1.c</em> sur le PC émetteur et branchez le RTL-SDR ou l'USRP sur votre machine. Toujours sur cette machine, lancez Gnuradio et ouvrez le fichier <em>raw_flow.grc</em> (le fichier source peut être téléchargé <a href="codes/raw_flow.grc">ici</a>).</p>
     <p>Noubliez pas, l'oscilloscope n'est pas fixe.</p>
-    <p>Vous pouvez télécharger le fichier source <a href="codes/raw_flow.grc">ici</a>.</p>
     <p><u>Indice:</u> La puissance instantannée du signal est égale à l'amplitude au carré.</p>
     <input type="button" value="Je veux voir la solution" onclick="answer()">
   </div>
@@ -333,7 +332,7 @@ body {font-size:16px;}
                <br>
                <div id="fin" style="display: none;">
                  <p>Le block clock Revovery MM va nous permettre d'extraire une donnée toutes les 1/2 seconde. Ensuite, le binary slicer va traduire la valeur précédente en octet (0x00 ou 0x01). Puis, le Pack K bytes permet de récupérer le bit de poids faible des octets récupérés et les concaténer.</p>
-                 <p>Dans le fichier en paramètre du bloc File Sink, on a désormais les octets de la modulation. Du fait du signal envoyer, nous avons soit des octets 0x55 (0b01010101) ou 0xaa(0b10101010) en fonction de la réception du 1er bit. Passons à l'atape 4 pour transmettre et réceptionner des informations.</p>
+                 <p>Dans le fichier en paramètre du bloc File Sink, on a désormais les octets de la modulation. Du fait du signal envoyé, nous avons soit des octets 0x55 (0b01010101) ou 0xaa(0b10101010) en fonction de la réception du 1er bit. Passons à l’étape 4 pour transmettre et réceptionner des informations.</p>
                  <a href="etape4.html"><button class="w3-button w3-red">Passer à l'étape 4</button></a>
 <!-- End div id: fin -->
                 </div>
