@@ -14,3 +14,11 @@ Ce challenge se déroulera en plusieurs étapes :
 - Écriture du malware permettant de transmettre l'information souhaitée.
 
 Vous trouverez dans ce dépôt les différents documents réalisés dans le cadre de ce projet long.
+
+## Comment utiliser ce dépôt?
+
+Le dossier docs contient les pages web permettant de résoudre le challenge. Il est possible d'accéder directement à la page du challenge en [ici](https://marcel56.github.io/THC-Projet-long---TEMPEST-attacks/).
+
+Le dossier Transmitter contient les fichiers devant être présents et compilé sur la machine attaquée. Le fichier flag ne devra être lisible que par root et le binaire compilé du fichier malware.c devra être en suid root pour être le seul à pouvoir lire le flag.
+
+Le dossier Receiver contient les fichiers devant être présents sur la machine de la personne résolvant le challenge. Les logiciels GNURadio et URH ainsi que les pilotes RTL-SDR et USRP devront également être installés sur cette machine.
