@@ -64,7 +64,7 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
+  <div class="w3-container" style="margin-top:80px; text-align: justify;" id="showcase">
     <h1 class="w3-xxxlarge"><b>Wanna TEMPEST your computer?</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 1</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -73,10 +73,10 @@ body {font-size:16px;}
     <div class="box">
     <h1 class="w3-xlarge w3-text"><b>Mais au fait...</b></h1>
     <p>Qu'est-ce qu'un analyseur de spectre?</p>
-      <input type="radio" name="choix" id="a"> Un instrument permettant d'afficher le signal d'une onde électromagnétique </input><br>
-      <input type="radio" name="choix" id="b"> Un instrument permettant de détecter les fantômes venant hanter l'ENSEEIHT</input><br>
-      <input type="radio" name="choix" id="c"> Un instrument permettant d'afficher les fréquences contenues dans un signal ainsi que leurs amplitudes respectives</input><br>
-      <input type="radio" name="choix" id="d"> Un instrument permettant de capter, sélectionner et décoder les ondes électromagnétiques émises par un récepteur </input><br>
+      <input type="radio" name="choix" id="a" autocomplete="off"> Un instrument permettant d'afficher le signal d'une onde électromagnétique </input><br>
+      <input type="radio" name="choix" id="b" autocomplete="off"> Un instrument permettant de détecter les fantômes venant hanter l'ENSEEIHT</input><br>
+      <input type="radio" name="choix" id="c" autocomplete="off"> Un instrument permettant d'afficher les fréquences contenues dans un signal ainsi que leurs amplitudes respectives</input><br>
+      <input type="radio" name="choix" id="d" autocomplete="off"> Un instrument permettant de capter, sélectionner et décoder les ondes électromagnétiques émises par un récepteur </input><br>
       <input type="button" value="Valider" onclick="answer()">
     <p id="question"></p>
     </div>
@@ -84,7 +84,7 @@ body {font-size:16px;}
   <div id="next" style="display: none;">
     <p> Il existe plusieurs types d'analyseurs de spectre. Pour une plus grande précision, les analyseurs de spectre utilisés en laboratoire sont de ce type :</p>
     <center><img src="images/1.jpg" alt="analyseur" height="400"></center>
-    <p>Il est également possible de réaliser un analyseur de spectre à partir d'un récepteur. Celui-ci sera moins précis mais permettra néanmoins de faires un certain nombre de mesures. Nous utiliserons ici un <b>RTL-SDR</b> ou un <b>USRP</b> comme récepteur ainsi que le logiciel <b>URH</b>. Le récepteur, couplé à son antenne, sert à réceptionner le signal. <b>URH</b> sert quant à lui à afficher le spectre.</p>
+    <p>Il est également possible de réaliser un analyseur de spectre à partir d'un récepteur. Celui-ci sera moins précis mais permettra néanmoins de faire un certain nombre de mesures. Nous utiliserons ici un <b>RTL-SDR</b> ou un <b>USRP</b> comme récepteur ainsi que le logiciel <b>URH</b>. Le récepteur, couplé à son antenne, sert à réceptionner le signal. <b>URH</b> sert quant à lui à afficher le spectre.</p>
     <br>
     <div class="box">
     <h1 class="w3-xlarge w3-text"><b>À vous !</b></h1>

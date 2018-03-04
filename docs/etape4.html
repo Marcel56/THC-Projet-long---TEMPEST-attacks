@@ -48,7 +48,7 @@ body {font-size:16px;}
 
 	function valider2() {
     var answer = document.getElementById("box").value
-    if(answer=="t3mpestmeifyoucan!"){
+    if(answer=="t3mp3st"){
       document.getElementById("again2").style.display = "none";
       document.getElementById("bravo2").style.display = "";
     }
@@ -108,7 +108,7 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
+  <div class="w3-container" style="margin-top:80px; text-align: justify;" id="showcase">
     <h1 class="w3-xxxlarge"><b>Wanna TEMPEST your computer?</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 4</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -144,7 +144,7 @@ body {font-size:16px;}
     </div>
     <div id="receiver" style="display: none">
       <h1 class="w3-xlarge"><b>Reception</b></h1>
-      <p>Nous allons maintenant construire le script C qui va convertir lire le message reçu et afficher le flag sous forme d'une chaîne de caractère.</p>
+      <p>Nous allons maintenant construire le script C qui va lire le message reçu et afficher le flag sous forme d'une chaîne de caractère.</p>
       <p>Voici la fonction qui permet d'extraire le message entre deux occurrences d'un pattern :</p>
       <div class="code">
         <pre class="prettyprint">
@@ -230,14 +230,14 @@ body {font-size:16px;}
       <div id="bravo1" style="display: none">
         <p> Bravo ! Vous pouvez télécharger le source <a href="codes/demodulation.c">ici</a>.</p>
         <div class="box">
-          <p> À présent, utilisez ce programme pour afficher le flag à partir du fichier obtenu à l'étape 3 (analysée bien le <em>main</em> pour comprendre quel argument attend le programe).</p>
+          <p> À présent, utilisez ce programme pour afficher le flag à partir du fichier obtenu à l'étape 3 (analysée bien le <em>main</em> pour comprendre quel argument attend le programe). Le flag ce situe dans le fichier 'Documents/flag'.</p>
           <input id="box" type="text" placeholder="Entrez le flag" onkeypress=runScript(event) autocomplete="off"></input>
           <input type="button" value="Valider" onclick=valider2()></input>
           <p id="again2" style="display: none">Try Again</p>
         </div>
       </div>
       <div id="bravo2" style="display: none">
-        <p>Félicitation ! Le flag était bien "pass". Vous avez terminé le challenge !!</p>
+        <p>Félicitation ! Le flag était bien "t3mp3st". Vous avez terminé le challenge !!</p>
         <a href="conclusion.html"><button class="w3-button w3-red">Conclusion</button></a>
       </div>
     </div>

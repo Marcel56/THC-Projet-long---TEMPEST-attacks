@@ -59,14 +59,14 @@ body {font-size:16px;}
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
+  <div class="w3-container" style="margin-top:80px; text-align: justify;" id="showcase">
     <h1 class="w3-xxxlarge"><b>Wanna TEMPEST your computer?</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Introduction</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Les premières préoccupations relatives aux émissions électromagnétiques des équipements électroniques remontent la Première Guerre Mondiale. Il s'agissait alors d'une problématiques seulement abordée par les gouvernements et les armées.</p>
+    <p>Les premières préoccupations relatives aux émissions électromagnétiques des équipements électroniques remontent à la Première Guerre Mondiale. Il s'agissait alors d'une problématique seulement abordée par les gouvernements et les armées.</p>
     <p>Une première exploitation de ces émissions a été réalisée par les laboratoires Bell durant la Seconde Guerre Mondiale : les chercheurs se sont aperçus, grâce à l'analyse du rayonnement électromagnétique produit par le système de chiffrement BELL 131-B2, qu'il était possible de retrouver le texte clair chiffré par cet appareil.</p>
     <p>Les premières informations non classées sur ces vulnérabilités datent de 1985 lorsque Wim van Eck, un chercheur néerlandais, a montré qu'il était possible d'intercepter le rayonnement électromagnétique des écrans à tube cathodique et de reconstituer à distance l'image affichée.</p>
-    <p>Le terme <b>TEMPEST</b> correspond au nom de code donné par NSA afin de désigner les mesures et standards liés aux émissions compromettantes des machines traitant de l'information. On désigne également par EMSEC (<i>Emission Security</i>) les mesures de protection contre les fuites électromagnétiques des équipements. Il s'agit d'un sous-domaine de la sécurité des communications (COMSEC pour <i>Communications Security</i>)</p>
+    <p>Le terme <b>TEMPEST</b> correspond au nom de code donné par la NSA afin de désigner les mesures et standards liés aux émissions compromettantes des machines traitant de l'information. On désigne également par EMSEC (<i>Emission Security</i>) les mesures de protection contre les fuites électromagnétiques des équipements. Il s'agit d'un sous-domaine de la sécurité des communications (COMSEC pour <i>Communications Security</i>)</p>
     <p>Tout appareil électronique provoque, lorsqu'il fonctionne, des émissions compromettantes (nous allons le voir à l'étape 1). Elles peuvent être de nature électrique, électromagnétique, mécanique ou acoustique, bien que le terme <b>TEMPEST</b> soit généralement utilisé pour parler des émissions électromagnétiques. Ces dernières sont principalement dues au déplacement des électrons au sein des circuits électroniques de l'appareil.</p>
     <p>Dans ce challenge, nous n'allons pas utiliser les émissions naturelles d'un composant mais forcer une émission afin de créer un canal caché nous permettant de transmettre de l'information.</p>
     <p>Les outils et logiciels nécessaires seront les suivants :
@@ -81,10 +81,10 @@ body {font-size:16px;}
     <div class="box">
     <h1 class="w3-xlarge w3-text"><b>Mais au fait...</b></h1>
     <p>A votre avis, que signifie le terme <b>TEMPEST</b>? (plusieurs réponses possibles)</p>
-    <input type="checkbox" id="a"> Telecommunications Electronics Material Protected from Emanating Spurious Transmissions </input><br>
-    <input type="checkbox" id="b"> Transient Electromagnetic Pulse Emanation Standard </input><br>
-    <input type="checkbox" id="c"> Telecommunications Emission Security Standards </input><br>
-    <input type="checkbox" id="d"> Tiny ElectroMagnetic Pests Emanating Secret Things </input><br>
+    <input type="checkbox" id="a" autocomplete="off"> Telecommunications Electronics Material Protected from Emanating Spurious Transmissions </input><br>
+    <input type="checkbox" id="b" autocomplete="off"> Transient Electromagnetic Pulse Emanation Standard </input><br>
+    <input type="checkbox" id="c" autocomplete="off"> Telecommunications Emission Security Standards </input><br>
+    <input type="checkbox" id="d" autocomplete="off"> Tiny ElectroMagnetic Pests Emanating Secret Things </input><br>
     <input type="button" value="Valider" onclick="answer()">
     <p id="question"></p>
     </div>

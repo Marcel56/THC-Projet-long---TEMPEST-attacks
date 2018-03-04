@@ -129,7 +129,7 @@ img {
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
   <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
+  <div class="w3-container" style="margin-top:80px; text-align: justify;" id="showcase">
     <h1 class="w3-xxxlarge"><b>Wanna TEMPEST your computer?</b></h1>
     <h1 class="w3-xxlarge w3-text-red"><b>Étape 2</b></h1>
     <hr style="width:50px;border:5px solid red" class="w3-round">
@@ -147,7 +147,7 @@ img {
         <tr>
           <td width="30%" style="padding-right:10px"><img src="images/motherboard.png"/><br>Architecture d'une carte mère <br>(source Wikipedia)</td>
           <td width="70%"><div>
-            <p>Le contrôleur de mémoire (encore appelé <i>Northbridge</i>) est un composant de la carte mère relié au microprocesseur. Il notamment en charge de fournir au CPU les données présentes en mémoire (RAM).</p>
+            <p>Le contrôleur de mémoire (encore appelé <i>Northbridge</i>) est un composant de la carte mère relié au microprocesseur. Il est notamment en charge de fournir au CPU les données présentes en mémoire (RAM).</p>
             <p>La transmission de ces données entre la RAM et le contrôleur mémoire se fait par l'intermédiaire du bus de données qui a généralement une taille de 64 bits sur les ordinateurs actuels. Cela signifie que 64 bits de données peuvent être transférés entre le contrôleur mémoire et la RAM en un seul coup d'horloge du processeur.</p>
             <p>Comme la taille de ce bus détermine en partie les vitesse d'entrée/sortie en RAM, les constructeurs de microprocesseurs (AMD et Intel) ont cherché à améliorer les performances de ce système. </p>
           </div></td>
@@ -192,10 +192,10 @@ img {
       <li>L'instruction <b>MOVNTDQ</b> du processeur permet de mettre en œuvre une activité sur le bus de données en utilisant les canaux multiples</li>
     </ol>
     <p>Que pouvons nous faire maintenant pour vérifier ces deux points?</p>
-    <input type="radio" name="choix" id="a"> Rien </input><br>
-    <input type="radio" name="choix" id="b"> Réaliser un programme en C qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
-    <input type="radio" name="choix" id="c"> Réaliser un programme Python qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
-    <input type="radio" name="choix" id="d"> Chercher plus d'informations sur Internet parce qu'on ne comprend pas où les créateurs du challenge veulent en venir </input><br>
+    <input type="radio" name="choix" id="a" autocomplete="off"> Rien </input><br>
+    <input type="radio" name="choix" id="b" autocomplete="off"> Réaliser un programme en C qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
+    <input type="radio" name="choix" id="c" autocomplete="off"> Réaliser un programme Python qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
+    <input type="radio" name="choix" id="d" autocomplete="off"> Chercher plus d'informations sur Internet parce qu'on ne comprend pas où les créateurs du challenge veulent en venir </input><br>
     <input type="button" value="Valider" onclick="fonc5()">
     <p id="question"></p>
   </div>
@@ -207,19 +207,19 @@ img {
     </div>
     <div class="code">
       <pre class="prettyprint">
-        void mov_data(int * data_ptr,char * buffer_ptr )
-        {
-          __asm("movq %0,%%xmm0\n"  //Écriture dans xmm0 de 64 bits de données
-                 :
-                 :"m" (*data_ptr)
-                 :"%xmm0");
-          __asm("movq %0,%%xmm1\n"  //Écriture dans xmm1 de 64 bits de données
-                 :
-                 :"m" (*(data_ptr+8))
-                 :"%xmm1");
-          __asm("movlhps %xmm1,%xmm0\n");  //128 bits de données dans xmm0
-          __asm("<input type="text" id="asm-input" value="" onkeypress=runScriptFonc6(event) autocomplete="off"> %%xmm0,%0\n" : "=m"(*buffer_ptr));
-        }
+  void mov_data(int * data_ptr,char * buffer_ptr )
+  {
+    __asm("movq %0,%%xmm0\n"  //Écriture dans xmm0 de 64 bits de données
+           :
+           :"m" (*data_ptr)
+           :"%xmm0");
+    __asm("movq %0,%%xmm1\n"  //Écriture dans xmm1 de 64 bits de données
+           :
+           :"m" (*(data_ptr+8))
+           :"%xmm1");
+    __asm("movlhps %xmm1,%xmm0\n");  //128 bits de données dans xmm0
+    __asm("<input type="text" id="asm-input" value="" onkeypress=runScriptFonc6(event) autocomplete="off"> %%xmm0,%0\n" : "=m"(*buffer_ptr));
+  }
       </pre>
       <div>
         <input type="button" value="Valider" onclick="fonc6()">
@@ -240,8 +240,8 @@ img {
 
     <p>Lancez le programme <i>mov_data1.c</i> sur le PC attaqué. Ce programme réalise successivement les opérations suivantes :
       <ul>
-        <li>Écriture de données en RAM pendant une période d'une seconde</li>
-        <li>Aucune activité pendant une période d'une seconde</li>
+        <li>Écriture de données en RAM pendant une période d'une seconde;</li>
+        <li>Aucune activité pendant une période d'une seconde.</li>
       </ul>
     </p>
     <p>Ainsi, nous devrions observer en alternance une activité et une non-activité à une certaine fréquence.</p>
