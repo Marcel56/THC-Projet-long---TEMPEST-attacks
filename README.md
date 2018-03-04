@@ -1,14 +1,16 @@
 # THC-Projet-long---TEMPEST-attacks
-Dépôt du projet long "TEMPEST attacks"
 
-Les premières préoccupations relatives aux émissions électromagnétiques des équipements électroniques remontent à la Première Guerre Mondiale. Il s'agissait alors d'une problématique seulement abordée par les gouvernements et les armées.
-Une première exploitation de ces émissions a été réalisée par les laboratoires Bell durant la Seconde Guerre Mondiale : les chercheurs se sont aperçus, grâce à l'analyse du rayonnement électromagnétique produit par le système de chiffrement BELL 131-B2, qu'il était possible de retrouver le texte clair chiffré par cet appareil.
+Ceci est le dépôt du projet long "Wanna TEMPEST your computer?". Dans ce challenge guidé, vous allez découvrir une vulnérabilité permettant d'extraire des données d'un réseau Air-Gapped, c'est-à-dire un réseau coupé du monde extérieur (Internet). Dans ce type d'infrastructure, seules les attaques locales sont possibles.
 
-Les premières informations non classées sur ces vulnérabilités datent de 1985 lorsque Wim van Eck, un chercheur néerlandais, a montré qu'il était possible d'intercepter le rayonnement électromagnétique des écrans à tube cathodique et de reconstituer à distance l'image affichée.
+Nous allons ici mettre en place une attaque dite TEMPEST. L'objectif est d'utiliser les fuites électromagnétiques du matériel afin d'extraire des données utiles. Le composant corrompu sera ici la RAM.
 
-Le terme TEMPEST correspond au nom de code donné par la NSA afin de désigner les mesures et standards liés aux émissions compromettantes des machines traitant de l'information. On désigne également par EMSEC (Emission Security) les mesures de protection contre les fuites électromagnétiques des équipements. Il s'agit d'un sous-domaine de la sécurité des communications (COMSEC pour Communications Security)
-Tout appareil électronique provoque, lorsqu'il fonctionne, des émissions compromettantes (nous allons le voir à l'étape 1). Elles peuvent être de nature électrique, électromagnétique, mécanique ou acoustique, bien que le terme TEMPEST soit généralement utilisé pour parler des émissions électromagnétiques. Ces dernières sont principalement dues au déplacement des électrons au sein des circuits électroniques de l'appareil.
+Nous allons présenter la vulnérabilité en utilisant du matériel grand public, facile d'accès et peu cher. La distance entre la source et l'antenne réceptrice sera donc relativement faible mais des traitements plus approfondis et l'utilisation de matériels plus sophistiqués permettraient de réaliser une attaque à plus grande distance.
 
-Dans se dépôt se trouvent des documents de travail afin d'émettre des informations grâce à un canal caché: des émissions électromagnétiques. 
+Ce challenge se déroulera en plusieurs étapes :
 
-Deux composants ont été retenus: La RAM double Channel et les périphériques USB.
+- Étude du rayonnement électromagnétique de l'ordinateur avec utilisation d'un analyseur de spectre;
+- Écriture d'un programme permettant de contrôler le rayonnement électromagnétique de la RAM;
+- Récupération et démodulation du signal émis par la RAM;
+- Écriture du malware permettant de transmettre l'information souhaitée.
+
+Vous trouverez dans ce dépôt les différents documents réalisés dans le cadre de ce projet long.
