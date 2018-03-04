@@ -133,8 +133,8 @@ body {font-size:16px;}
     <div id="transmitter" style="display: none">
       <h1 class="w3-xlarge"><b>Transmission</b></h1>
       <p>À présent, il s'agit de modifier notre script de transmission afin qu'il émette le binaire associé à un fichier précis.</p>
-      <p>Cette étape étant trop longue pour être réalisée dans le temps imparti, vous pouvez télécharger <a href="codes/malware.c">ici</a> le fichier C modifié. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM 0.5s pour transmettre un 1 et ne fait rien pendant 0.5s pour transmettre un 0.
-      Il tourne en boucle à l'infini, et avant de transmettre le binaire, il transmet un pattern qui ne correspond à aucun caractère ASCII. Ce pattern permet de localiser la position du flag lors de la réception (qui sera entre deux occurrences du pattern). Nous avons alors choisit pattern='11111111'.</p>
+      <p>Cette étape étant trop longue pour être réalisée dans le temps imparti, vous pouvez télécharger <a href="codes/malware.c">ici</a> le fichier C modifié. Celui-ci prend un fichier en argument, lit son code binaire, écrit dans la RAM pendant 1 seconde pour transmettre un bit <b>1</b> et ne fait rien pendant 1 seconde pour transmettre un bit <b>0</b>. Le temps de transmission d'un bit est ici fixé à 1 seconde afin de limiter le taux d'erreur à la réception.</p>
+      <p> Le programme tourne en boucle à l'infini et, avant de transmettre le binaire, transmet un pattern qui ne correspond à aucun caractère ASCII. Ce pattern permet de localiser la position du flag lors de la réception : celui-ci se trouvera ainsi entre deux occurrences du pattern. Nous avons choisi <b>pattern='11111111'</b>.</p>
       <div class="box">
         <p>Exécuter alors le malware sur l'ordinateur de la victime.</p>
       </div>
@@ -230,7 +230,7 @@ body {font-size:16px;}
       <div id="bravo1" style="display: none">
         <p> Bravo ! Vous pouvez télécharger le source <a href="codes/demodulation.c">ici</a>.</p>
         <div class="box">
-          <p> À présent, utilisez ce programme pour afficher le flag à partir du fichier obtenu à l'étape 3 (analysée bien le <em>main</em> pour comprendre quel argument attend le programe). Le flag ce situe dans le fichier 'Documents/flag'.</p>
+          <p> À présent, utilisez ce programme pour afficher le flag à partir du fichier obtenu à l'étape 3 (analysez bien le <em>main</em> pour comprendre quel argument attend le programme). Le flag se situe dans le fichier 'Documents/flag'.</p>
           <input id="box" type="text" placeholder="Entrez le flag" onkeypress=runScript(event) autocomplete="off"></input>
           <input type="button" value="Valider" onclick=valider2()></input>
           <p id="again2" style="display: none">Try Again</p>

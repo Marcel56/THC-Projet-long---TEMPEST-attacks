@@ -6,7 +6,7 @@
 #include <math.h>
 #include <string.h>
 
-float TX_TIME = 1; //Temps de transmission d'un bit
+float TX_TIME = 0.5; //Temps de transmission d'un bit
 int DATA_SIZE = 128; //Taille maximale en octet des données à transmettre
 
 
