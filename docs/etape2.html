@@ -74,7 +74,7 @@ img {
     } else if (document.getElementById("d").checked == true) {
       document.getElementById("question").textContent = "Mince... Tournez-vous vers l'encadrant pour faire le point avec lui.";
     } else {
-      document.getElementById("question").textContent = "Mauvaise réponse... L'idée va être d'écrire des données en mémoire en utilisant des instructions en langage assembleur. Le C est tout indiqué pour cela.";
+      document.getElementById("question").textContent = "Mauvaise réponse...";
     }
   }
   function fonc6() {
@@ -135,8 +135,8 @@ img {
     <hr style="width:50px;border:5px solid red" class="w3-round">
   <div>
     <p>Nous avons pu observer à l'étape 1 que certaines activités sur l'ordinateur provoquaient une variation significative du spectre.</p>
-    <p>L'idée que nous allons maintenant développer jusqu'à la fin challenge est la suivante : comme nous pouvons provoquer et contrôler une activité électromagnétique sur l'ordinateur et que celle-ci peut être observée par l'intermédiaire d'un récepteur, il nous est alors possible de créer un signal dans lequel seront codées des informations que nous souhaitons extraire de l'ordinateur.</p>
-    <p>La première question est de savoir quelle activité émettant une onde électromagnétique de façon significative nous pouvons ici utiliser et contrôler? C'est pour cette raison que nous allons décrire les architecture mémoire à multiples canaux.</p>
+    <p>L'idée que nous allons maintenant développer jusqu'à la fin du challenge est la suivante : comme nous pouvons provoquer et contrôler une activité électromagnétique sur l'ordinateur et que celle-ci peut être observée par l'intermédiaire d'un récepteur, il nous est alors possible de créer un signal dans lequel seront codées certaines informations que nous souhaitons extraire de l'ordinateur.</p>
+    <p>Avant toute chose, nous devons trouver une activité émettant une onde électromagnétique de façon significative. C'est pour cette raison que nous allons décrire les architectures mémoire à multiples canaux.</p>
     <p><input type="button" value="Je veux en savoir plus sur la mémoire à multiples canaux" onclick=fonc2()></p>
   </div>
 
@@ -147,7 +147,7 @@ img {
         <tr>
           <td width="30%" style="padding-right:10px"><img src="images/motherboard.png"/><br>Architecture d'une carte mère <br>(source Wikipedia)</td>
           <td width="70%"><div>
-            <p>Le contrôleur de mémoire (encore appelé <i>Northbridge</i>) est un composant de la carte mère relié au microprocesseur et notamment en charge de lui fournir les données présentes en mémoire (RAM).</p>
+            <p>Le contrôleur de mémoire (encore appelé <i>Northbridge</i>) est un composant de la carte mère relié au microprocesseur. Il notamment en charge de fournir au CPU les données présentes en mémoire (RAM).</p>
             <p>La transmission de ces données entre la RAM et le contrôleur mémoire se fait par l'intermédiaire du bus de données qui a généralement une taille de 64 bits sur les ordinateurs actuels. Cela signifie que 64 bits de données peuvent être transférés entre le contrôleur mémoire et la RAM en un seul coup d'horloge du processeur.</p>
             <p>Comme la taille de ce bus détermine en partie les vitesse d'entrée/sortie en RAM, les constructeurs de microprocesseurs (AMD et Intel) ont cherché à améliorer les performances de ce système. </p>
           </div></td>
@@ -159,11 +159,11 @@ img {
       <table>
         <tr>
           <td width="40%"><div>
-            <p>L'idée à été d'utiliser deux barrettes de RAM identiques pour agrandir le bus mémoire. Comme on peut le voir sur la figure ci-contre, ce mécanisme permet d'obtenir un bus de données de 128 bits.</p>
+            <p>Dans cette perspective d'amélioration des performances, l'idée a été d'utiliser deux barrettes de RAM identiques pour agrandir le bus mémoire. Comme on peut le voir sur la figure ci-contre, ce mécanisme permet ainsi d'obtenir un bus de données de 128 bits.</p>
             <p>Les constructeurs ont étendu ce principe à trois et quatre canaux, permettant d'obtenir des bus de données d'une taille respective de 192 et 256 bits.</p>
             <p>Aujourd'hui, la plupart des ordinateurs sont compatibles avec les architectures à multiples canaux.</p>
-            <p>On peut déjà voir que ce type de mécanisme, même s'il augmente la vitesse d'entrée/sortie en mémoire, est gourmand en énergie. En effet, il mobilise presque deux fois plus de ressources matérielles que dans le cas d'un simple canal. On sait maintenant que cela pourra potentiellement avoir des conséquences sur les émissions électromagnétiques de l'ordinateur.</p>
-            <p>Si vous avez compris les architectures à multiples canaux, voyons maintenant comment le processeur met directement en œuvre le mécanisme.</p>
+            <p>On peut déjà voir que ce type de mécanisme, même s'il augmente la vitesse d'entrée/sortie en mémoire, est gourmand en énergie. En effet, il mobilise à chaque coup d'horloge presque deux fois plus de ressources matérielles que dans le cas d'un simple canal. On sait maintenant que cela pourra potentiellement avoir des conséquences sur les émissions électromagnétiques de l'ordinateur.</p>
+            <p>Si vous avez compris les architectures à multiples canaux, voyons maintenant comment le processeur peut directement mettre en œuvre le mécanisme.</p>
           </div></td>
           <td width="30%" style="padding-left:10px"><img src="images/mono-canal.png" /><br>Architecture mono-canal</td>
           <td width="30%"><img src="images/multi-canal.png"/><br>Architecture multi-canal</td>
@@ -178,9 +178,9 @@ img {
 
   <div id="movntdq" style="display: none;">
     <h1 class="w3-xlarge"><b>L'instruction MOVNTDQ</b></h1>
-    <p>Du fait des mécanismes de cache et d'optimisation mis en place par le processeur, on ne peut être certain qu'une activité aura lieu sur le bus de données. Or une telle activité est nécessaire pour potentiellement obtenir l'émission d'une onde électromagnétique significative.</p>
+    <p>Du fait des mécanismes de cache et d'optimisation mis en place par le processeur, on ne peut être certain qu'une activité aura toujours lieu sur le bus de données. Or une telle activité est nécessaire pour potentiellement obtenir l'émission d'une onde électromagnétique significative.</p>
     <p>Heureusement, il existe des instructions liées aux processeurs modernes permettant d'activer une lecture/écriture directement depuis/vers la RAM et ce sans utiliser les mécanismes de cache. C'est par exemple le cas de l'instruction <b>MOVNTDQ <i>m128,xmm</i></b> dont le but est de directement déplacer 128 bits de données présentes dans un registre <i>xmm</i> vers une zone mémoire spécifiée.</p>
-    <p>Au delà de la non utilisation des caches, cette instruction tirera avantage de l'existence de multiples canaux afin d'effectuer l'opération en un seul coup d'horloge : un double canal présent sur la machine sera donc entièrement utilisé pour déplacer ces 128 bits de données vers la RAM en un coup d'horloge.</p>
+    <p>Au delà de la non utilisation des caches, cette instruction tirera avantage de l'existence de multiples canaux afin d'effectuer l'opération en un seul coup d'horloge : un double canal présent sur la machine sera donc entièrement utilisé pour déplacer ces 128 bits de données vers la RAM en un unique coup d'horloge.</p>
     <p><input type="button" value="J'ai compris MOVNTDQ" onclick=fonc4()></p>
   </div>
 
@@ -192,7 +192,7 @@ img {
       <li>L'instruction <b>MOVNTDQ</b> du processeur permet de mettre en œuvre une activité sur le bus de données en utilisant les canaux multiples</li>
     </ol>
     <p>Que pouvons nous faire maintenant pour vérifier ces deux points?</p>
-    <input type="radio" name="choix" id="a"> Rien / Je ne sais pas </input><br>
+    <input type="radio" name="choix" id="a"> Rien </input><br>
     <input type="radio" name="choix" id="b"> Réaliser un programme en C qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
     <input type="radio" name="choix" id="c"> Réaliser un programme Python qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu</input><br>
     <input type="radio" name="choix" id="d"> Chercher plus d'informations sur Internet parce qu'on ne comprend pas où les créateurs du challenge veulent en venir </input><br>
@@ -234,7 +234,7 @@ img {
 
     <div class="box">
       <h1 class="w3-xlarge w3-text"><b>Indication</b></h1>
-        <p>Positionnez l'antenne du RTL-SDR à proximité du PC. Parcourez le spectre entre 100MHz et 400MHz. En effet, si une émissions électromagnétique peut être observée, la fréquence de celle-ci se situera aux alentours de la fréquence d'entrée/sortie du bus de données.</p>
+        <p>Positionnez l'antenne du récepteur à proximité du PC. Parcourez le spectre entre 100MHz et 400MHz. En effet, si une émissions électromagnétique peut être observée, la fréquence de celle-ci se situera aux alentours de la fréquence d'entrée/sortie du bus de données.</p>
         <p>La fréquence des barrettes de RAM étant de 400MHz, les écritures en mémoire ne pourront donc pas se faire à une fréquence supérieure.</p>
     </div>
 
@@ -263,12 +263,12 @@ img {
       <img src="images/signal.png"/>
     </div>
     <p>On remarque de façon évidente les variations régulières d'amplitude qui correspondent aux variations d'activité sur le bus de données que nous avons créées.</p>
-    <p>L'idée est alors d'utiliser ces variations pour coder de l'information : c'est ce qu'on appelle l'étape de modulation.</p>
-    <p>La technique de modulation que nous allons utiliser ici sera <i>Amplitude-shift keying</i> (ASK). L'idée ici est d'utiliser les variations d'amplitude d'une onde porteuse pour coder de l'information. Comme nous souhaitons coder une information numérique et faire cela bit par bit, seuls deux niveaux d'amplitude sont nécessaires : une amplitude haute correspondra à un 1 binaire et une amplitude basse correspondra à un 0 binaire. On parle alors de modulation <i>Binary-ASK</i> (B-ASK) ou encore de <i>On-off keying</i> (OOK).</p>
+    <p>L'idée est alors d'utiliser ces variations pour coder de l'information : c'est ce qu'on appelle l'étape de <b>modulation</b>.</p>
+    <p>La technique de modulation que nous allons utiliser ici sera <i>Amplitude-shift keying</i> (ASK). L'idée ici est d'utiliser les variations d'amplitude d'une onde porteuse pour coder de l'information. Comme nous souhaitons coder une information numérique et la transmettre bit par bit, seuls deux niveaux d'amplitude sont nécessaires : une amplitude haute correspondra à un 1 binaire et une amplitude basse correspondra à un 0 binaire. On parle alors de modulation <i>Binary-ASK</i> (B-ASK) ou encore de <i>On-off keying</i> (OOK).</p>
     <p>Ainsi, dans le cadre des émissions que nous contrôlons, il suffira de transmettre de l'information pendant une période <b>T</b> sur le bus de données pour obtenir une amplitude haute et coder un 1. Aucune transmission d'information pendant une période <b>T</b> nous permettra d'obtenir une fréquence basse et de coder un 0.</p>
     <div class="box">
       <h1 class="w3-xlarge w3-text"><b>Can I ASK you a question?</b></h1>
-      <p>La lettre <b>a</b> dans la table ASCII est représentée en binaire par <b>01100001</b>. Selon la règle de modulation ASK telle que nous l'avons définie ci-dessus, quel signal ci-dessous correspond à l'envoi de la lettre <b>a</b>?</p>
+      <p>La lettre <b>a</b> dans la table ASCII est représentée en binaire par <b>01100001</b>. Selon la règle de modulation ASK telle que nous l'avons décrite ci-dessus, quel signal ci-dessous correspond à l'envoi de la lettre <b>a</b>?</p>
       <table style="">
         <tr>
           <td bgcolor="white"><img src="images/sig1.png"><br><input type="radio" name="rad-sig" id="sig-a"><font color="black"> a</font></td>
