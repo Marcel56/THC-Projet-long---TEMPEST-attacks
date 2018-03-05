@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.11'?>
+<?grc format='1' created='3.7.10'?>
 <flow_graph>
   <timestamp>Thu Feb 15 08:10:24 2018</timestamp>
   <block>
@@ -285,7 +285,7 @@
     </param>
     <param>
       <key>file</key>
-      <value>C:\Users\guill\Desktop\projet long\pack_bytes</value>
+      <value>/home/sdr/Challenge/grc_out</value>
     </param>
     <param>
       <key>_coordinate</key>
