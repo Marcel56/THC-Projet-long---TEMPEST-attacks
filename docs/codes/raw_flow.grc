@@ -607,7 +607,7 @@
     </param>
     <param>
       <key>omega</key>
-      <value>100000</value>
+      <value>50000</value>
     </param>
     <param>
       <key>type</key>

@@ -144,6 +144,10 @@ body {font-size:16px;}
     </div>
     <div id="receiver" style="display: none">
       <h1 class="w3-xlarge"><b>Reception</b></h1>
+      <div class="box">
+        <p>Comme le débit est à présent de 1bit/s, il est nécessaire de modifier les paramètres du bloc "Clock Recovery MM" du graph GNU Radio. Changez alors la valeur d'Omega pour 100k pour la suite.</p>
+        <p>Reproduisez alors l'étape 3 sur le signal émis par le malware (attendez au moins 2 minutes pour réceptionner tout le flag).</p>
+      </div>
       <p>Nous allons maintenant construire le script C qui va lire le message reçu et afficher le flag sous forme d'une chaîne de caractère.</p>
       <p>Voici la fonction qui permet d'extraire le message entre deux occurrences d'un pattern :</p>
       <div class="code">
@@ -230,7 +234,7 @@ body {font-size:16px;}
       <div id="bravo1" style="display: none">
         <p> Bravo ! Vous pouvez télécharger le source <a href="codes/demodulation.c">ici</a>.</p>
         <div class="box">
-          <p> À présent, utilisez ce programme pour afficher le flag à partir du fichier obtenu à l'étape 3 (analysez bien le <em>main</em> pour comprendre quel argument attend le programme). Le flag se situe dans le fichier 'Documents/flag'.</p>
+          <p> À présent, utilisez ce programme pour afficher le flag à partir du fichier obtenu à l'étape 3 (analysez bien le <em>main</em> pour comprendre quel argument attend le programme). Le flag se situe dans le fichier 'challenge/flag'.</p>
           <input id="box" type="text" placeholder="Entrez le flag" onkeypress=runScript(event) autocomplete="off"></input>
           <input type="button" value="Valider" onclick=valider2()></input>
           <p id="again2" style="display: none">Try Again</p>
