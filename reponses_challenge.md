@@ -9,12 +9,12 @@
 ## Etape 2 :
 - Vérification des éléments décrits : nous pouvons réaliser un programme en C qui écrit des données en mémoire et voir avec l'analyseur de spectre si une émission significative a lieu
 - Instruction à compléter dans le code C : l'instruction manquante est **MOVNTDQ**
-- Fréquence d'émission du signal à trouver : la réponse est considérée comme bonne si elle se trouve entre 195 et 205 MHz
-- Encodage de la lettre **a** avec la règle de modulation ASK : la réponse **d** doit être cochée
+- Fréquence d'émission du signal à trouver : la réponse est considérée comme bonne si elle se trouve entre **195** et **205** MHz
+- Encodage de la lettre *a* avec la règle de modulation ASK : la réponse **d** doit être cochée
 
 ## Etape 3 :
 - Mise en place des blocs : la solution est directement accessible dans le challenge
 
 ## Etape 4 :
-- Fonction à sélectionner dans le code C : bin_to_ascii(msg, pass);
-- Flag à valider : t3mp3st
+- Fonction à sélectionner dans le code C : **bin_to_ascii(msg, pass);**
+- Flag à valider : **t3mp3st**
