@@ -22,3 +22,5 @@ Le dossier *docs* contient les pages web à suivre pour résoudre le challenge. 
 Le dossier *Transmitter* contient les fichiers devant être présents et compilés sur la machine attaquée. Le fichier **flag** ne devra être lisible que par root et le binaire compilé du fichier **malware.c** devra être en SUID root pour être le seul à pouvoir lire le fichier **flag**.
 
 Le dossier *Receiver* contient les fichiers devant être présents sur la machine de la personne qui résout le challenge. Les logiciels **GNURadio** et **URH** ainsi que les pilotes RTL-SDR et USRP devront également être installés sur cette machine.
+
+Le fichier **reponses_challenge.md** est à l'intention des relecteurs et contient les réponses qui doivent être saisies pour aller jusqu'au bout du challenge.
