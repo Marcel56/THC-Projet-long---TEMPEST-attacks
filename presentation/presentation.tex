@@ -1,0 +1,60 @@
+\documentclass{beamer}
+\usepackage[utf8x]{inputenc} % Texte d'entrée encodé au format UTF-8
+\usepackage[T1]{fontenc} % Texte de sortie encodé au format Latin-1
+\usepackage[english]{babel} % If you write in French
+\usepackage{array}
+
+\usetheme{Singapore}
+
+\title{Wanna TEMPEST your computer?}
+\author{Florian Barbarin, Maxime Gagliardini and Guillaume Squillaci}
+\institute{TLS-SEC}
+\date{\today}
+
+\AtBeginSection[]
+{
+  \begin{frame}
+  \frametitle{Table of contents}
+  \tableofcontents[currentsection,currentsubsection]
+  \end{frame} 
+}
+
+\begin{document}
+
+\begin{frame}
+\titlepage
+
+%\begin{table}
+%\centering
+%\begin{tabular}{>{\centering\arraybackslash}m{.4\textwidth} >{\centering\arraybackslash}m{.4\textwidth}}
+%
+%\centering \includegraphics[scale=.3]{images/usenix.png} & 
+%\begin{footnotesize}
+%\centering Mordechai Guri, Assaf Kachlon, Ofer Hasson, Gabi Kedma, Yisroel Mirsky et Yuval Elovici (\textit{Ben-Gurion University})
+%\end{footnotesize}
+%\end{tabular}
+%\end{table}
+\end{frame}
+
+\section{Introduction}
+
+	\input{introduction.tex}
+
+\section{Transmitter}
+
+	\input{transmitter.tex}
+
+\section{Receiver}
+
+	\input{receiver.tex}
+	
+\section{Data exfiltration}
+
+	\input{data_exfiltration.tex}
+	
+\section{Conclusion}
+
+	\input{conclusion.tex}
+
+
+\end{document}
