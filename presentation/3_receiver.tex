@@ -1,8 +1,86 @@
+
 \begin{frame}
-\frametitle{Test}
-\begin{block}{test}
-\begin{itemize}
-\item test
-\end{itemize}
-\end{block}
+	\frametitle{Demodulation}
+	\centering \includegraphics[scale=.13]{images/gnuradio_logo.png}
+
+	\begin{columns}[c] % align columns
+		\begin{column}{.28\textwidth}
+			\begin{block}{GNUradio}
+				\begin{itemize}
+					\item Free and Open-source Software
+					\item Software Radio
+					\item Signal Processing
+				\end{itemize}
+			\end{block}
+		\end{column}%
+		\hfill%
+		\begin{column}{.5\textwidth}
+			\begin{block}{Configuration}
+				\begin{itemize}
+					\item Sample Rate 
+					\item Frequency
+					\item Period
+				\end{itemize}
+			\end{block}
+		\end{column}%
+	\end{columns}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Raw Signal}
+	\centering \includegraphics[scale=.2]{images/raw_sig.png}
+	\begin{block}{xxxxxxxx}
+		\begin{itemize}
+			\item Complex Signal:
+			\begin{itemize}
+				\item In-phase 
+				\item Quadrature
+			\end{itemize}
+			\item \[s(t)=i(t)+jq(t)=r(t).e^j\phi(t) \]
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Instantaneous Power}
+	\centering \includegraphics[scale=.2]{images/apres_mag2.png}
+	\begin{block}{xxxxxx}
+		\begin{itemize}
+			\item Magnitude
+			\item \[P(t)=|r(t)|²\]
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sliding Average}
+	\centering \includegraphics[scale=.2]{images/apres_average.png}
+	\begin{block}{xxxxxx}
+		\begin{itemize}
+			\item Number of samples
+			\item Treshold
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Square wave}
+	\centering \includegraphics[scale=.2]{images/apres_add_const.png}
+	\begin{block}{xxxxxx}
+		\begin{itemize}
+			\item period
+			\item file sink
+		\end{itemize}
+	\end{block}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Conclusion}
+	\begin{block}{Problem}
+		\begin{itemize}
+			\item Noise
+			\item Sample Rate
+			\item Synchronizationtion
+		\end{itemize}
+	\end{block}
 \end{frame}
