@@ -1,10 +1,10 @@
 
 \begin{frame}
 	\frametitle{Demodulation}
-	\centering \includegraphics[scale=.13]{images/gnuradio_logo.png}
+	\centering \includegraphics[scale=.5]{images/gnuradio_logo.png}
 
 	\begin{columns}[c] % align columns
-		\begin{column}{.28\textwidth}
+		\begin{column}{.48\textwidth}
 			\begin{block}{GNUradio}
 				\begin{itemize}
 					\item Free and Open-source Software
@@ -14,7 +14,7 @@
 			\end{block}
 		\end{column}%
 		\hfill%
-		\begin{column}{.5\textwidth}
+		\begin{column}{.48\textwidth}
 			\begin{block}{Configuration}
 				\begin{itemize}
 					\item Sample Rate 
@@ -29,7 +29,7 @@
 
 \begin{frame}
 	\frametitle{Raw Signal}
-	\centering \includegraphics[scale=.2]{images/raw_sig.png}
+	\centering \includegraphics[scale=.35]{images/raw_sig.png}
 	\begin{block}{Source Output}
 		\begin{itemize}
 			\item Complex Signal:
@@ -37,26 +37,26 @@
 				\item In-phase 
 				\item Quadrature
 			\end{itemize}
-			\[s(t)=i(t)+jq(t)=r(t).e^j\phi(t) \]
+			\[s(t)=i(t)+jq(t)=r(t).e^{j\varphi(t)} \]
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Instantaneous Power}
-	\centering \includegraphics[scale=.2]{images/apres_mag2.png}
+	\centering \includegraphics[scale=.35]{images/apres_mag2.png}
 	\begin{block}{Float Signal}
 		\begin{itemize}
 			\item Amplitude
 			\item Magnitude
-			\[P(t)=|r(t)|²\]
+			\[P(t)=|r(t)|^2\]
 		\end{itemize}
 	\end{block}
 \end{frame}
 
 \begin{frame}
 	\frametitle{Sliding Average}
-	\centering \includegraphics[scale=.2]{images/apres_average.png}
+	\centering \includegraphics[scale=.35]{images/apres_average.png}
 	\begin{block}{Float Signal}
 		\begin{itemize}
 			\item Number of samples
@@ -67,7 +67,7 @@
 
 \begin{frame}
 	\frametitle{Signal Before Decision}
-	\centering \includegraphics[scale=.2]{images/apres_add_const.png}
+	\centering \includegraphics[scale=.35]{images/apres_add_const.png}
 	\begin{block}{Square Wave}
 		\begin{itemize}
 			\item Clock period
@@ -78,8 +78,8 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Conclusion}
-	\begin{block}{Problem}
+	\frametitle{Signal processing}
+	\begin{block}{Things to improve}
 		\begin{itemize}
 			\item Noise
 			\item Synchronization
