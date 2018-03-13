@@ -20,6 +20,7 @@
 					\item Sample Rate 
 					\item Frequency
 					\item Period
+					\item Gain
 				\end{itemize}
 			\end{block}
 		\end{column}%
@@ -29,14 +30,14 @@
 \begin{frame}
 	\frametitle{Raw Signal}
 	\centering \includegraphics[scale=.2]{images/raw_sig.png}
-	\begin{block}{xxxxxxxx}
+	\begin{block}{Source Output}
 		\begin{itemize}
 			\item Complex Signal:
 			\begin{itemize}
 				\item In-phase 
 				\item Quadrature
 			\end{itemize}
-			\item \[s(t)=i(t)+jq(t)=r(t).e^j\phi(t) \]
+			\[s(t)=i(t)+jq(t)=r(t).e^j\phi(t) \]
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -44,10 +45,11 @@
 \begin{frame}
 	\frametitle{Instantaneous Power}
 	\centering \includegraphics[scale=.2]{images/apres_mag2.png}
-	\begin{block}{xxxxxx}
+	\begin{block}{Float Signal}
 		\begin{itemize}
+			\item Amplitude
 			\item Magnitude
-			\item \[P(t)=|r(t)|²\]
+			\[P(t)=|r(t)|²\]
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -55,7 +57,7 @@
 \begin{frame}
 	\frametitle{Sliding Average}
 	\centering \includegraphics[scale=.2]{images/apres_average.png}
-	\begin{block}{xxxxxx}
+	\begin{block}{Float Signal}
 		\begin{itemize}
 			\item Number of samples
 			\item Treshold
@@ -64,12 +66,13 @@
 \end{frame}
 
 \begin{frame}
-	\frametitle{Square wave}
+	\frametitle{Signal Before Decision}
 	\centering \includegraphics[scale=.2]{images/apres_add_const.png}
-	\begin{block}{xxxxxx}
+	\begin{block}{Square Wave}
 		\begin{itemize}
-			\item period
-			\item file sink
+			\item Clock period
+			\item Output Byte
+			\item Byte Processing
 		\end{itemize}
 	\end{block}
 \end{frame}
@@ -79,8 +82,9 @@
 	\begin{block}{Problem}
 		\begin{itemize}
 			\item Noise
-			\item Sample Rate
-			\item Synchronizationtion
+			\item Synchronization
+			\item Transmitter
+			\item BER
 		\end{itemize}
 	\end{block}
 \end{frame}
